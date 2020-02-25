@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 public class NameProject : MonoBehaviour
 {
@@ -10,6 +8,6 @@ public class NameProject : MonoBehaviour
     public void NameTheProject()
     {
         Debug.Log("PROJECT NAME: the project name is now" + projectName.text);
-
+        GameManager.projectName = projectName.text;
     }
 }

@@ -16,7 +16,8 @@ public class SliderLight : MonoBehaviour
 
     public void SliderValueUpdated()
     {
-       sliderValue.text = mySlider.value.ToString(); 
+       sliderValue.text = mySlider.value.ToString();
+        GameManager.SliderValue = (int)mySlider.value;
     }
 }
 
