@@ -54,10 +54,14 @@ public class GameManager : MonoBehaviour
             objRotMinAngle >= 0 && objRotMaxAngle > 0 && step4 > 0 && minNoObj > 0 && maxNoObj > 0
             && projectName.Length>0 && SceneSelected.Length>0 && models.Count>0)
         {
-
+            Debug.Log("Switching scenes...");
             LoadScene(SceneSelected);
             Directory.CreateDirectory("Images/"+projectName); // returns a DirectoryInfo object
 
+        }
+        else
+        {
+            Debug.Log("Something's not right...");
         }
     }
     private void LoadScene(string theName)
