@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6972285197586911328}
   m_Layer: 0
   m_Name: Mitsubishi__Evo_ment_wheel_left_front_01
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 3098642654413290717}
   m_Layer: 0
   m_Name: Mitsubishi__Evo_ment_car_body_01
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 3299590357739692095}
   m_Layer: 0
   m_Name: Mitsubishi__Evo_ment_wheel_left_back_01
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 4023615337557364156}
   m_Layer: 0
   m_Name: Mitsubishi__Evo_ment_wheel_right_back_04
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 6387197739424601449}
   m_Layer: 0
   m_Name: Mitsubishi__Evo_ment_wheel_right_front_03
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: -5077178890073639497}
   m_Layer: 10
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

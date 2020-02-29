@@ -19,9 +19,13 @@ public class MoveCamera : MonoBehaviour
     public Slider slider1, slider2, slider3;
     public TMP_Text text1, text2, text3;
     public GameObject panel2; //panel1
+    private bool once;
     // Start is called before the first frame update
     void Start()
     {
+        once = false;
+
+
         change1 = change2 = change3 = false;
         SetSegmentationEffect();
         Camera3.renderingPath = RenderingPath.Forward;
@@ -59,10 +63,6 @@ public class MoveCamera : MonoBehaviour
 
         text1.text = text2.text = text3.text = "0%";*/
 
-
-        Directory.CreateDirectory("Images/" + GameManager.projectName+"/NormalImages");
-        Directory.CreateDirectory("Images/" + GameManager.projectName + "/GroundTruthImages");
-        Directory.CreateDirectory("Images/" + GameManager.projectName + "/DepthImages");
         StartCoroutine(RotateAndCapture());
     
     }
@@ -169,15 +169,46 @@ public class MoveCamera : MonoBehaviour
         var mpb = new MaterialPropertyBlock();
         foreach (var r in renderers)
         {
-            var id = Math.Abs(r.gameObject.GetInstanceID());
-            var layer = r.gameObject.layer;
-            Debug.Log("object name :" + r.gameObject.name+ "object ID :"+ id);
-            mpb.SetColor("_ObjectColor", ColorEncoding.EncodeIDAsColor(id));
-            mpb.SetColor("_CategoryColor", ColorEncoding.EncodeLayerAsColor(layer));//give a color by name
+            //var id = Math.Abs(r.gameObject.GetInstanceID());
+            var theTag = r.gameObject.tag;
+            var id = getTheId(theTag);
+            Debug.Log("object name :" + theTag + "object ID :" + id);
+            mpb.SetColor("_ObjectColor", ColorEncoding.EncodeIDAsColor(id,theTag));
+            mpb.SetColor("_CategoryColor", ColorEncoding.EncodeTagAsColor(theTag));//give a color by name
             r.SetPropertyBlock(mpb);
+            
         }
     }
+    private int getTheId(string aTag)
+    {
+        int theId = 0;
+        switch(aTag)
+        {
+            case "AirbusA310":
+                theId = 105441;
+                break;
+            case "Bus":
+                theId = 95442;
+                break;
+            case "Bycicle":
+                theId = 85443;
+                break;
+            case "Car":
+                theId = 75444;
+                break;
+            case "Jet":
+                theId = 65445;
+                break;
+            case "Motor":
+                theId = 55446;
+                break;
+            default:
+                theId = 45440;
+                break;
+        }
 
+        return theId;
+    }
     private void SetUpCameraWithReplacementShader(int mode, Color clearColor, Camera cam)
     {
         var cb = new CommandBuffer();

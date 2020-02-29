@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
                {
                     //if it doesn't, create it
                     Directory.CreateDirectory("Images/" + projectName); // returns a DirectoryInfo object
+                    CreateFolders();
 
                 }
                 else
@@ -68,7 +69,9 @@ public class GameManager : MonoBehaviour
                             count++;
                         }
                     }
-                    Directory.CreateDirectory("Images/" + projectName +"("+ count.ToString()+")");
+                    projectName = projectName + "(" + count.ToString() + ")";
+                    Directory.CreateDirectory("Images/" + projectName);
+                    CreateFolders();
                 }
                
 
@@ -93,7 +96,7 @@ public class GameManager : MonoBehaviour
         {
             //if it doesn't, create it
             Directory.CreateDirectory("Images/" + projectName); // returns a DirectoryInfo object
-
+            CreateFolders();
         }
         else
         {
@@ -106,10 +109,18 @@ public class GameManager : MonoBehaviour
                     count++;
                 }
             }
-            Directory.CreateDirectory("Images/" + projectName+"("+count.ToString()+")");
+            projectName = projectName + "(" + count.ToString() + ")";
+            Directory.CreateDirectory("Images/" + projectName); 
+            CreateFolders();
         }
 
 
+    }
+    private void CreateFolders()
+    {
+        Directory.CreateDirectory("Images/" + projectName + "/NormalImages");
+        Directory.CreateDirectory("Images/" + projectName + "/GroundTruthImages");
+        Directory.CreateDirectory("Images/" + projectName + "/DepthImages");
     }
     public void LoadScene(string theName)
     {

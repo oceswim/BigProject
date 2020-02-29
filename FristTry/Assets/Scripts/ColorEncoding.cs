@@ -24,7 +24,7 @@ public class ColorEncoding
         return retVal >> sparse;
     }
 
-    public static Color EncodeIDAsColor(int instanceId)
+    public static Color EncodeIDAsColor(int instanceId,string myTag)
     {
         var uid = instanceId * 2;
         if (uid < 0)
@@ -40,17 +40,19 @@ public class ColorEncoding
         var g = (byte)(sid >> 16);
         var b = (byte)(sid);
 
-        //Debug.Log(r + " " + g + " " + b);
+        Debug.Log(myTag+ " colored r: " + r + "g: " + g + "b: " + b);
         return new Color32(r, g, b, 255);
     }
 
     public static Color EncodeTagAsColor(string tag)
     {
         var hash = tag.GetHashCode();
+      
         var a = (byte)(hash >> 24);
         var r = (byte)(hash >> 16);
         var g = (byte)(hash >> 8);
         var b = (byte)(hash);
+        Debug.Log("the hash of " + tag + ": " + hash+"\na: " +a+ "r: " +r+ "g: " + g + "b: " + b);
         return new Color32(r, g, b, a);
     }
 

@@ -7,12 +7,10 @@ public class RotateObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //increment = GameManager.step4;
-        //MinRotationValue = GameManager.objRotMinAngle;
-        //MaxRotationValue = GameManager.objRotMaxAngle;
-        increment = 45;
-        MinRotationValue = 0;
-        MaxRotationValue = 360;
+        increment = GameManager.step4;
+        MinRotationValue = GameManager.objRotMinAngle;
+        MaxRotationValue = GameManager.objRotMaxAngle;
+
         index = MinRotationValue;
         StartCoroutine(Rotate());
     }

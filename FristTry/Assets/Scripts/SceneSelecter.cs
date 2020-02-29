@@ -9,7 +9,7 @@ public class SceneSelecter : MonoBehaviour
     void Start()
     {
         currentSelectedScene = SceneDropDown.options[SceneDropDown.value].text;
-        Debug.Log(currentSelectedScene);
+       
         selectedScene.text = "Scene selected: " + currentSelectedScene;
         GameManager.SceneSelected = currentSelectedScene;
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6062513117747388}
   m_Layer: 10
   m_Name: AirBusA310
-  m_TagString: Untagged
+  m_TagString: AirbusA310
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
