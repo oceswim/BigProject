@@ -13,47 +13,51 @@ public class PrefabSelection : MonoBehaviour
     public Slider minNoObj, maxNoObj;
     private List<string> prefabsAdded = new List<string>();
     private bool existing;
-    public GameObject listElement,listContent;
+    public GameObject listElement,listContent,errorMessage1,errorMessage2;
 
     // Start is called before the first frame update
     void Start()
     {
         existing = false;
-        minNumText.text = "Min no of Objects: 1";
-        maxNumText.text = "Max no of Objects: 2";
+        //minNumText.text = "Min no of Objects: 1";
+        //maxNumText.text = "Max no of Objects: 2";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void AddObjToList()
     {
-        string theValue = objDropDown.options[objDropDown.value].text;
+        if (prefabsAdded.Count < 5)
+        {
+            string theValue = objDropDown.options[objDropDown.value].text;
 
-        foreach (string s in prefabsAdded)
-        {
-            if(s.Equals(theValue))
+            foreach (string s in prefabsAdded)
             {
-                Debug.Log(theValue+ " already in list");
-                existing = true;
-                break;
+                if (s.Equals(theValue))
+                {
+                    Debug.Log(theValue + " already in list");
+                    existing = true;
+                    break;
+                }
             }
-        }
-        if(!existing)
-        {
-            prefabsAdded.Add(theValue);
-            GameManager.models.Add(theValue);
-            Debug.Log(prefabsAdded.Count);
-            GameObject newListElement = Instantiate(listElement);
-            newListElement.transform.parent = listContent.transform;
-            newListElement.name = theValue;
-            newListElement.GetComponent<TMP_Text>().text =prefabsAdded.Count+") "+theValue ;
+            if (!existing)
+            {
+                prefabsAdded.Add(theValue);
+                GameManager.models.Add(theValue);
+                Debug.Log(prefabsAdded.Count);
+                GameObject newListElement = Instantiate(listElement);
+                newListElement.transform.parent = listContent.transform;
+                newListElement.name = theValue;
+                newListElement.GetComponent<TMP_Text>().text = prefabsAdded.Count + ") " + theValue;
+            }
+            else
+            {
+                errorMessage2.SetActive(true);
+                existing = false;//resets the value for next add
+            }
         }
         else
         {
-            existing = false;//resets the value for next add
+            errorMessage1.SetActive(true);
+            Debug.Log("max atteint");
         }
     }
     public void RemoveObjFromList()

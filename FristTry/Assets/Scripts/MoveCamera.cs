@@ -15,10 +15,11 @@ public class MoveCamera : MonoBehaviour
     public Camera Camera1, Camera2, Camera3;
     private Transform T1, T2, T3;
     public Shader effectShader;
+    private bool change1, change2, change3;
     // Start is called before the first frame update
     void Start()
     {
-        
+        change1 = change2 = change3 = false;
         SetSegmentationEffect();
         Camera3.renderingPath = RenderingPath.Forward;
         SetUpCameraWithReplacementShader(0, Color.gray,Camera3);
@@ -50,7 +51,7 @@ public class MoveCamera : MonoBehaviour
     }
     private IEnumerator RotateAndCapture() // for loop based on elevation angle + azim angle + dist value
     {
-        while(goodToGo<2)
+        while(goodToGo<3)
         {
             if (minDist < maxDist)
             {
@@ -58,9 +59,17 @@ public class MoveCamera : MonoBehaviour
                 T1.Translate(0, 0, -increment1);
                 T2.Translate(0, 0, -increment1);
                 T3.Translate(0, 0, -increment1);
-                Debug.Log("Position: " + transform.position);
                 minDist += increment1;
              
+            }
+            else
+            {
+                if (!change1)
+                {
+                    change1= true;
+                    goodToGo++;
+                    Debug.Log("goodToGo: " + goodToGo);
+                }
             }
             if (minElevAngle < maxElevAngle)
             {
@@ -69,6 +78,15 @@ public class MoveCamera : MonoBehaviour
                 T3.Rotate(increment2, 0, 0);
                 minElevAngle += increment2;
               
+            }
+            else
+            {
+                if (!change2)
+                {
+                    change2= true;
+                    goodToGo++;
+                    Debug.Log("goodToGo: " + goodToGo);
+                }
             }
             if (minAzimAngle < maxAzimAngle)
             {
@@ -79,38 +97,35 @@ public class MoveCamera : MonoBehaviour
                 minAzimAngle += increment3;
               
             }
+            else
+            {
+                if (!change3)
+                {
+                    change3 = true;
+                    goodToGo++;
+                    Debug.Log("goodToGo: " + goodToGo);
+                }
+            }
             T1.LookAt(target);
-            string path = "Images/" + GameManager.projectName + "/GroundTruthImages/Img" + index.ToString();
+            string path = "Images/" + GameManager.projectName + "/GroundTruthImages/Img" + index.ToString()+".png";
             ScreenCapture.CaptureScreenshot(path);
             yield return new WaitForEndOfFrame();
             T1.gameObject.SetActive(false);
             T2.gameObject.SetActive(true);
             T2.LookAt(target);
-            string path2 = "Images/" + GameManager.projectName + "/NormalImages/Img" + index.ToString();
+            string path2 = "Images/" + GameManager.projectName + "/NormalImages/Img" + index.ToString()+".png";
             ScreenCapture.CaptureScreenshot(path2);
             yield return new WaitForEndOfFrame();
             T2.gameObject.SetActive(false);
             T3.gameObject.SetActive(true);
             T3.LookAt(target);
-            string path3 = "Images/" + GameManager.projectName + "/DepthImages/Img" + index.ToString();
+            string path3 = "Images/" + GameManager.projectName + "/DepthImages/Img" + index.ToString()+".png";
             ScreenCapture.CaptureScreenshot(path3);
             yield return new WaitForEndOfFrame();
             T3.gameObject.SetActive(false);
             T1.gameObject.SetActive(true);
             index++;
-            if (minDist > maxDist)
-             {
-                 goodToGo++;
-             }
-            if (minElevAngle > maxElevAngle)
-             {
-                 goodToGo++;
-             }
-            if (minAzimAngle > maxAzimAngle)
-            {
-                goodToGo++;
-            }
-
+  
         }
 
         if(goodToGo==3)

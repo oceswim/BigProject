@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
         minNoObj, maxNoObj;
     public static string projectName,SceneSelected;
     public static List<string> models;
-
+    public static int changes;
+    public GameObject notInputEverything, noModels;
     private void Awake()
     {
         SliderValue = objMinDist = objMaxDist = step1 = elevationMinAngle =
@@ -36,33 +37,41 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
     public void StartProcess()
     {
-        if(SliderValue >= 0 && objMinDist > 0 && objMaxDist > 0 && step1 > 0 && elevationMinAngle >= 0 &&
-            elevationMaxAngle > 0 && step2 > 0 && azimuthMinAngle >= 0 && azimuthMaxAngle > 0 && step3 > 0 &&
-            objRotMinAngle >= 0 && objRotMaxAngle > 0 && step4 > 0 && minNoObj > 0 && maxNoObj > 0
-            && projectName.Length>0 && SceneSelected.Length>0 && models.Count>0)
+        /* if(SliderValue >= 0 && objMinDist > 0 && objMaxDist > 0 && step1 > 0 && elevationMinAngle >= 0 &&
+             elevationMaxAngle > 0 && step2 > 0 && azimuthMinAngle >= 0 && azimuthMaxAngle > 0 && step3 > 0 &&
+             objRotMinAngle >= 0 && objRotMaxAngle > 0 && step4 > 0 && minNoObj > 0 && maxNoObj > 0
+             && projectName.Length>0 && SceneSelected.Length>0 && models.Count>0)*/
+        if (models.Count > 0)
         {
-            Debug.Log("Switching scenes...");
-            LoadScene(SceneSelected);
-            Directory.CreateDirectory("Images/"+projectName); // returns a DirectoryInfo object
+            Debug.Log("changes: " + changes);
+            if (changes == 14)
+            {
+                Debug.Log("Switching scenes...");
+                LoadScene(SceneSelected);
+                Directory.CreateDirectory("Images/" + projectName); // returns a DirectoryInfo object
 
+            }
+            else
+            {
+                notInputEverything.SetActive(true);
+                Debug.Log("Something's not right...");
+            }
         }
         else
         {
-            Debug.Log("Something's not right...");
+            noModels.SetActive(true);
+            Debug.Log("choose at least one model...");
         }
+    }
+    public void ProceedWithDefault()
+    {
+        Debug.Log("Switching scenes...");
+        LoadScene(SceneSelected);
+        Directory.CreateDirectory("Images/" + projectName); // returns a DirectoryInfo object
+
     }
     private void LoadScene(string theName)
     {
