@@ -190,7 +190,7 @@ public class MoveCamera : MonoBehaviour
             case "Bus":
                 theId = 95442;
                 break;
-            case "Bycicle":
+            case "Bicycle":
                 theId = 85443;
                 break;
             case "Car":
