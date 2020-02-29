@@ -7,9 +7,12 @@ public class RotateObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        increment = GameManager.step4;
-        MinRotationValue = GameManager.objRotMinAngle;
-        MaxRotationValue = GameManager.objRotMaxAngle;
+        //increment = GameManager.step4;
+        //MinRotationValue = GameManager.objRotMinAngle;
+        //MaxRotationValue = GameManager.objRotMaxAngle;
+        increment = 45;
+        MinRotationValue = 0;
+        MaxRotationValue = 360;
         index = MinRotationValue;
         StartCoroutine(Rotate());
     }
@@ -21,7 +24,7 @@ public class RotateObject : MonoBehaviour
         while(index<MaxRotationValue)
         {
             transform.Rotate(0, increment, 0);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(.5f);
             index += increment;
         }
         

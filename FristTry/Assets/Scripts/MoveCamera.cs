@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
-
+using TMPro;
 public class MoveCamera : MonoBehaviour
 {
     private int minDist, maxDist, increment1,
@@ -16,6 +16,9 @@ public class MoveCamera : MonoBehaviour
     private Transform T1, T2, T3;
     public Shader effectShader;
     private bool change1, change2, change3;
+    public Slider slider1, slider2, slider3;
+    public TMP_Text text1, text2, text3;
+    public GameObject panel1, panel2;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,20 @@ public class MoveCamera : MonoBehaviour
         minAzimAngle = GameManager.azimuthMinAngle;
         maxAzimAngle = GameManager.azimuthMaxAngle;
         increment3 = GameManager.step3;
+
+
+        slider1.minValue = minDist;
+        slider1.maxValue = maxDist;
+        
+        slider2.minValue = minAzimAngle;
+        slider2.maxValue = maxAzimAngle;
+
+        slider3.minValue = minElevAngle;
+        slider3.maxValue = maxElevAngle;
+
+        text1.text = text2.text = text3.text = "0%";
+
+
         Directory.CreateDirectory("Images/" + GameManager.projectName+"/NormalImages");
         Directory.CreateDirectory("Images/" + GameManager.projectName + "/GroundTruthImages");
         Directory.CreateDirectory("Images/" + GameManager.projectName + "/DepthImages");
@@ -60,7 +77,9 @@ public class MoveCamera : MonoBehaviour
                 T2.Translate(0, 0, -increment1);
                 T3.Translate(0, 0, -increment1);
                 minDist += increment1;
-             
+                slider1.value = minDist;
+                float percentage = ((float)minDist / (float)maxDist)*100;
+                text1.text = percentage.ToString() + "%";
             }
             else
             {
@@ -77,7 +96,11 @@ public class MoveCamera : MonoBehaviour
                 T2.Rotate(increment2, 0, 0);
                 T3.Rotate(increment2, 0, 0);
                 minElevAngle += increment2;
-              
+
+                slider3.value = minElevAngle;
+                float percentage = ((float)minElevAngle / (float)maxElevAngle) * 100;
+                text3.text = percentage.ToString() + "%";
+
             }
             else
             {
@@ -95,7 +118,10 @@ public class MoveCamera : MonoBehaviour
                 T2.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
                 T3.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
                 minAzimAngle += increment3;
-              
+                slider2.value = minAzimAngle;
+                float percentage = ((float)minAzimAngle / (float)maxAzimAngle) * 100;
+                text2.text = percentage.ToString() + "%";
+
             }
             else
             {
@@ -130,6 +156,8 @@ public class MoveCamera : MonoBehaviour
 
         if(goodToGo==3)
         {
+            panel1.SetActive(false);
+            panel2.SetActive(true);
             Debug.Log("YOURE DONE");
         }
     }

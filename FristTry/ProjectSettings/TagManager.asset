@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - AirbusA310
+  - Bicycle
+  - Bus
+  - Car
+  - Jet
+  - Motor
   layers:
   - Default
   - TransparentFX

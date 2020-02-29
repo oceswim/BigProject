@@ -51,7 +51,26 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("Switching scenes...");
                 LoadScene(SceneSelected);
-                Directory.CreateDirectory("Images/" + projectName); // returns a DirectoryInfo object
+                if (!Directory.Exists("Images/" + projectName))
+               {
+                    //if it doesn't, create it
+                    Directory.CreateDirectory("Images/" + projectName); // returns a DirectoryInfo object
+
+                }
+                else
+                {
+                  string[] dirs =  Directory.GetDirectories("Images/");
+                    int count = 0;
+                   foreach( string s in dirs)
+                    {
+                        if (s.Contains("Images/" + projectName))
+                        {
+                            count++;
+                        }
+                    }
+                    Directory.CreateDirectory("Images/" + projectName +"("+ count.ToString()+")");
+                }
+               
 
             }
             else
@@ -70,13 +89,43 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Switching scenes...");
         LoadScene(SceneSelected);
-        Directory.CreateDirectory("Images/" + projectName); // returns a DirectoryInfo object
+        if (!Directory.Exists("Images/" + projectName))
+        {
+            //if it doesn't, create it
+            Directory.CreateDirectory("Images/" + projectName); // returns a DirectoryInfo object
+
+        }
+        else
+        {
+            string[] dirs = Directory.GetDirectories("Images/");
+            int count = 0;
+            foreach (string s in dirs)
+            {
+                if (s.Equals("Images/" + projectName))
+                {
+                    count++;
+                }
+            }
+            Directory.CreateDirectory("Images/" + projectName+"("+count.ToString()+")");
+        }
+
 
     }
-    private void LoadScene(string theName)
+    public void LoadScene(string theName)
     {
         SceneManager.LoadScene(theName);
 
     }
-    
+    public void ExitApp()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_WEBPLAYER
+         Application.OpenURL(webplayerQuitURL);
+#else
+         Application.Quit();
+#endif
+
+    }
+
 }
