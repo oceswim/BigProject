@@ -92,11 +92,12 @@ public class MoveCamera : MonoBehaviour
             }
             if (minElevAngle < maxElevAngle)
             {
-                T1.Rotate(increment2, 0, 0);
-                T2.Rotate(increment2, 0, 0);
-                T3.Rotate(increment2, 0, 0);
+                //T1.Rotate(increment2, 0, 0);
+                //T2.Rotate(increment2, 0, 0);
+                //T3.Rotate(increment2, 0, 0);
+                transform.Rotate(increment2, 0, 0);//need to rotate the parent for the children to rotate.
                 minElevAngle += increment2;
-
+                
                 /*slider3.value = minElevAngle;
                 float percentage = (float)Math.Round(((float)minElevAngle / (float)maxElevAngle) * 100);
                 text3.text = percentage.ToString() + "%";*/

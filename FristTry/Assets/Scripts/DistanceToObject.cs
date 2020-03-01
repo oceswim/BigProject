@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class DistanceToObject : MonoBehaviour
 {
-    private const int MAXDIST = 750;
+    private const int MAXDIST = 1000;
     public TMP_InputField MinDist, MaxDist, Step;
     private bool input1, input2, input3;
     // Start is called before the first frame update
@@ -12,7 +12,7 @@ public class DistanceToObject : MonoBehaviour
     {
         input1 = input2 = input3 = false;
         GameManager.objMinDist = 0;
-        GameManager.objMaxDist = 750;
+        GameManager.objMaxDist = 1000;
         GameManager.step1 = 25;
     }
     public void MinDistInput()
