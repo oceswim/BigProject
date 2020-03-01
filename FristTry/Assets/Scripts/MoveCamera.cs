@@ -34,12 +34,13 @@ public class MoveCamera : MonoBehaviour
         Camera2.renderingPath = RenderingPath.Forward;
         SetUpCameraWithReplacementShader(2, Color.white,Camera2);
 
-
+        Camera2.gameObject.SetActive(false);
+        Camera3.gameObject.SetActive(false);
         T1 = Camera1.transform;
         T2 = Camera2.transform;
         T3 = Camera3.transform;
-        T2.gameObject.SetActive(false);
-        T3.gameObject.SetActive(false);
+        /*T2.gameObject.SetActive(false);
+        T3.gameObject.SetActive(false);*/
         index =goodToGo= 0;
         minDist = GameManager.objMinDist;
         maxDist = GameManager.objMaxDist;
@@ -73,9 +74,10 @@ public class MoveCamera : MonoBehaviour
             if (minDist < maxDist)
             {
                 Debug.Log("Min dist : " + minDist);
-                T1.Translate(0, 0, -increment1);
+                transform.Translate(0, 0, -increment1);
+                /*T1.Translate(0, 0, -increment1);
                 T2.Translate(0, 0, -increment1);
-                T3.Translate(0, 0, -increment1);
+                T3.Translate(0, 0, -increment1);*/
                 minDist += increment1;
                 /*slider1.value = minDist;
                 float percentage = (float)Math.Round(((float)minDist / (float)maxDist) * 100);
@@ -97,7 +99,7 @@ public class MoveCamera : MonoBehaviour
                 //T3.Rotate(increment2, 0, 0);
                 transform.Rotate(increment2, 0, 0);//need to rotate the parent for the children to rotate.
                 minElevAngle += increment2;
-                
+                Debug.Log("X "+transform.rotation);
                 /*slider3.value = minElevAngle;
                 float percentage = (float)Math.Round(((float)minElevAngle / (float)maxElevAngle) * 100);
                 text3.text = percentage.ToString() + "%";*/
@@ -115,9 +117,10 @@ public class MoveCamera : MonoBehaviour
             if (minAzimAngle < maxAzimAngle)
             {
                 Debug.Log("Azim angle :" + minAzimAngle);
-                T1.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
+                /*T1.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
                 T2.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
-                T3.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
+                T3.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);*/
+                transform.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
                 minAzimAngle += increment3;
 
                /*slider2.value = minAzimAngle;
@@ -138,20 +141,20 @@ public class MoveCamera : MonoBehaviour
             string path = "Images/" + GameManager.projectName + "/GroundTruthImages/Img" + index.ToString()+".png";
             ScreenCapture.CaptureScreenshot(path);
             yield return new WaitForEndOfFrame();
-            T1.gameObject.SetActive(false);
-            T2.gameObject.SetActive(true);
+            Camera1.gameObject.SetActive(false);
+            Camera2.gameObject.SetActive(true);
             T2.LookAt(target);
             string path2 = "Images/" + GameManager.projectName + "/NormalImages/Img" + index.ToString()+".png";
             ScreenCapture.CaptureScreenshot(path2);
             yield return new WaitForEndOfFrame();
-            T2.gameObject.SetActive(false);
-            T3.gameObject.SetActive(true);
+            Camera2.gameObject.SetActive(false);
+            Camera3.gameObject.SetActive(true);
             T3.LookAt(target);
             string path3 = "Images/" + GameManager.projectName + "/DepthImages/Img" + index.ToString()+".png";
             ScreenCapture.CaptureScreenshot(path3);
             yield return new WaitForEndOfFrame();
-            T3.gameObject.SetActive(false);
-            T1.gameObject.SetActive(true);
+            Camera3.gameObject.SetActive(false);
+            Camera1.gameObject.SetActive(true);
             index++;
   
         }
