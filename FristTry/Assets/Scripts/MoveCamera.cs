@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class MoveCamera : MonoBehaviour
 {
+
     private int minDist, maxDist, increment1,
         minElevAngle, maxElevAngle, increment2,
         minAzimAngle, maxAzimAngle, increment3,
@@ -28,6 +29,7 @@ public class MoveCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      
         once = false;
 
         models = new Transform[GameManager.models.Count];
@@ -75,20 +77,20 @@ public class MoveCamera : MonoBehaviour
     {
         for (int x = minDist; x <= maxDist; x += increment1)
         {
-           
+
             transform.Translate(0, 0, -x);
 
             for (int c = minElevAngle; c <= maxElevAngle; c += increment2)
             {
-                
+
                 Vector3 temp = transform.rotation.eulerAngles;
                 temp.x = c;
                 transform.rotation = Quaternion.Euler(temp);
-              
+
 
                 for (int v = minAzimAngle; v <= maxAzimAngle; v += increment3)
                 {
-                   
+
 
                     transform.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
 
@@ -103,28 +105,32 @@ public class MoveCamera : MonoBehaviour
                             t.rotation = Quaternion.Euler(temp2);
 
                         }
-                            int sceneInd = SceneManager.GetActiveScene().buildIndex;
-                            string imageName = "Img_" + index + "_Light" + GameManager.SliderValue + "_D" + x + "_Elev" + c + "_Azim" + v +"_ObjRot"+w+ "_Scene" + sceneInd + ".png";
-                            T1.LookAt(target);
-                            string path = "Images/" + GameManager.projectName + "/GroundTruthImages/";
-                            ScreenCapture.CaptureScreenshot(Path.Combine(path+imageName));
-                            yield return new WaitForEndOfFrame();
-                            Camera1.gameObject.SetActive(false);
-                            Camera2.gameObject.SetActive(true);
-                            T2.LookAt(target);
-                            string path2 = "Images/" + GameManager.projectName + "/NormalImages/" + imageName;
-                            ScreenCapture.CaptureScreenshot(Path.Combine(path2+imageName));
-                            yield return new WaitForEndOfFrame();
-                            Camera2.gameObject.SetActive(false);
-                            Camera3.gameObject.SetActive(true);
-                            T3.LookAt(target);
-                            string path3 = "Images/" + GameManager.projectName + "/DepthImages/" + imageName;
-                            ScreenCapture.CaptureScreenshot(Path.Combine(path3+imageName));
-                            yield return new WaitForEndOfFrame();
-                            Camera3.gameObject.SetActive(false);
-                            Camera1.gameObject.SetActive(true);
-                            index++;
-                        
+                        int sceneInd = SceneManager.GetActiveScene().buildIndex;
+                        string imageName = "Img_" + index + "_Light" + GameManager.SliderValue + "_D" + x + "_Elev" + c + "_Azim" + v + "_ObjRot" + w + "_Scene" + sceneInd + ".png";
+                        T1.LookAt(target);
+                        string path, path2, path3;
+                        path = "Images/" + GameManager.projectName + "/GroundTruthImages/";
+                        path2 = "Images/" + GameManager.projectName + "/NormalImages/";
+                        path3 = "Images/" + GameManager.projectName + "/DepthImages/";
+                        yield return new WaitForEndOfFrame();
+                        ScreenCapture.CaptureScreenshot(Path.Combine(path + imageName));
+                        yield return new WaitForEndOfFrame();
+                        Camera1.gameObject.SetActive(false);
+                        Camera2.gameObject.SetActive(true);
+                        T2.LookAt(target);
+
+                        ScreenCapture.CaptureScreenshot(Path.Combine(path2 + imageName));
+                        yield return new WaitForEndOfFrame();
+                        Camera2.gameObject.SetActive(false);
+                        Camera3.gameObject.SetActive(true);
+                        T3.LookAt(target);
+
+                        ScreenCapture.CaptureScreenshot(Path.Combine(path3 + imageName));
+                        yield return new WaitForEndOfFrame();
+                        Camera3.gameObject.SetActive(false);
+                        Camera1.gameObject.SetActive(true);
+                        index++;
+
                     }
                 }
 
