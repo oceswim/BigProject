@@ -105,22 +105,21 @@ public class MoveCamera : MonoBehaviour
                         }
                             int sceneInd = SceneManager.GetActiveScene().buildIndex;
                             string imageName = "Img_" + index + "_Light" + GameManager.SliderValue + "_D" + x + "_Elev" + c + "_Azim" + v +"_ObjRot"+w+ "_Scene" + sceneInd + ".png";
-
                             T1.LookAt(target);
-                            string path = "Images/" + GameManager.projectName + "/GroundTruthImages/" + imageName;
-                            ScreenCapture.CaptureScreenshot(path);
+                            string path = "Images/" + GameManager.projectName + "/GroundTruthImages/";
+                            ScreenCapture.CaptureScreenshot(Path.Combine(path+imageName));
                             yield return new WaitForEndOfFrame();
                             Camera1.gameObject.SetActive(false);
                             Camera2.gameObject.SetActive(true);
                             T2.LookAt(target);
                             string path2 = "Images/" + GameManager.projectName + "/NormalImages/" + imageName;
-                            ScreenCapture.CaptureScreenshot(path2);
+                            ScreenCapture.CaptureScreenshot(Path.Combine(path2+imageName));
                             yield return new WaitForEndOfFrame();
                             Camera2.gameObject.SetActive(false);
                             Camera3.gameObject.SetActive(true);
                             T3.LookAt(target);
                             string path3 = "Images/" + GameManager.projectName + "/DepthImages/" + imageName;
-                            ScreenCapture.CaptureScreenshot(path3);
+                            ScreenCapture.CaptureScreenshot(Path.Combine(path3+imageName));
                             yield return new WaitForEndOfFrame();
                             Camera3.gameObject.SetActive(false);
                             Camera1.gameObject.SetActive(true);
