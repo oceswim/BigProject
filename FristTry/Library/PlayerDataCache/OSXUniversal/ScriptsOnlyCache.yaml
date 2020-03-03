@@ -24,8 +24,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
-    UnityEditor.TestRunner.dll:
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -1244,4 +1242,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Grass.unity
   - Assets/Scenes/Desert.unity
-  playerPath: /Users/Oceswil83/Desktop/COURSFAC/BigProject/BUILDS/MACOS/FirstBuild-0303.app
+  playerPath: /Users/Oceswil83/Desktop/COURSFAC/BUILDS/MACOS/first-03:03.app
