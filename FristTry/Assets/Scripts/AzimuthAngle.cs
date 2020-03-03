@@ -13,7 +13,7 @@ public class AzimuthAngle : MonoBehaviour
         input1 = input2 = input3 = false;
         GameManager.azimuthMinAngle = 0;
         GameManager.azimuthMaxAngle = 180;
-        GameManager.step3 = 5;
+        GameManager.step3 = 30;
     }
     public void MinAngleAzimInput()
     {
@@ -78,7 +78,15 @@ public class AzimuthAngle : MonoBehaviour
                 GameManager.changes++;
             }
             Debug.Log("AZIM ANGLE: The step3 is now" + Step3.text);
-            GameManager.step3 = int.Parse(Step3.text);
+            int ste3 = int.Parse(Step3.text);
+            if (ste3 <= MAXANGLE & ste3>=30)
+            {
+                GameManager.step3 = int.Parse(Step3.text);
+            }
+            else
+            {
+                GameManager.step3 = 30;
+            }
         }
         else
         {

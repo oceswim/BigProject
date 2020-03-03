@@ -8,23 +8,21 @@ public class RotateObject : MonoBehaviour
     void Start()
     {
         increment = GameManager.step4;
-        MinRotationValue = GameManager.objRotMinAngle;
-        MaxRotationValue = GameManager.objRotMaxAngle;
-
-        index = MinRotationValue;
-        StartCoroutine(Rotate());
+    }
+    private void Update()
+    {
+        
     }
 
     // Update is called once per frame
-    private IEnumerator Rotate()
+    public void Rotate()
     {
-        Debug.Log("rotating" + index);
-        while(index<MaxRotationValue)
-        {
-            transform.Rotate(0, increment, 0);
-            yield return new WaitForSeconds(.5f);
-            index += increment;
-        }
+      
+       
+        transform.Rotate(0, increment, 0);
+        
+
+        
         
     }
 }

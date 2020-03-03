@@ -5,13 +5,16 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class MoveCamera : MonoBehaviour
 {
     private int minDist, maxDist, increment1,
         minElevAngle, maxElevAngle, increment2,
-        minAzimAngle, maxAzimAngle, increment3;
+        minAzimAngle, maxAzimAngle, increment3,
+        minObjRot, maxObjRot, increment4;
     private Vector3 target = new Vector3(0, 0, 0);
-    int index,goodToGo;
+    int index, goodToGo;
     public Camera Camera1, Camera2, Camera3;
     private Transform T1, T2, T3;
     public Shader effectShader;
@@ -20,28 +23,38 @@ public class MoveCamera : MonoBehaviour
     public TMP_Text text1, text2, text3;
     public GameObject panel2; //panel1
     private bool once;
+    private Transform[] models;
+    public Transform spawners;
     // Start is called before the first frame update
     void Start()
     {
         once = false;
 
-
+        models = new Transform[GameManager.models.Count];
+        for (int i = 0; i < models.Length; i++)
+        {
+            Transform parent = spawners.GetChild(i);
+            models[i] = parent.GetChild(0);
+        }
         change1 = change2 = change3 = false;
         SetSegmentationEffect();
         Camera3.renderingPath = RenderingPath.Forward;
-        SetUpCameraWithReplacementShader(0, Color.gray,Camera3);
+        SetUpCameraWithReplacementShader(0, Color.gray, Camera3);
 
         Camera2.renderingPath = RenderingPath.Forward;
-        SetUpCameraWithReplacementShader(2, Color.white,Camera2);
+        SetUpCameraWithReplacementShader(2, Color.white, Camera2);
 
         Camera2.gameObject.SetActive(false);
         Camera3.gameObject.SetActive(false);
         T1 = Camera1.transform;
         T2 = Camera2.transform;
         T3 = Camera3.transform;
-        /*T2.gameObject.SetActive(false);
-        T3.gameObject.SetActive(false);*/
-        index =goodToGo= 0;
+
+        index = 1;
+        minObjRot = GameManager.objRotMinAngle;
+        maxObjRot = GameManager.objRotMaxAngle;
+        increment4 = GameManager.step4;
+
         minDist = GameManager.objMinDist;
         maxDist = GameManager.objMaxDist;
         increment1 = GameManager.step1;
@@ -53,118 +66,76 @@ public class MoveCamera : MonoBehaviour
         increment3 = GameManager.step3;
 
 
-        /*slider1.minValue = minDist;
-        slider1.maxValue = maxDist;
-        
-        slider2.minValue = minAzimAngle;
-        slider2.maxValue = maxAzimAngle;
 
-        slider3.minValue = minElevAngle;
-        slider3.maxValue = maxElevAngle;
-
-        text1.text = text2.text = text3.text = "0%";*/
 
         StartCoroutine(RotateAndCapture());
-    
+
     }
     private IEnumerator RotateAndCapture() // for loop based on elevation angle + azim angle + dist value
     {
-        while(goodToGo<3)
+        for (int x = minDist; x <= maxDist; x += increment1)
         {
-            if (minDist < maxDist)
+           
+            transform.Translate(0, 0, -x);
+
+            for (int c = minElevAngle; c <= maxElevAngle; c += increment2)
             {
-                Debug.Log("Min dist : " + minDist);
-                transform.Translate(0, 0, -increment1);
-                /*T1.Translate(0, 0, -increment1);
-                T2.Translate(0, 0, -increment1);
-                T3.Translate(0, 0, -increment1);*/
-                minDist += increment1;
-                /*slider1.value = minDist;
-                float percentage = (float)Math.Round(((float)minDist / (float)maxDist) * 100);
-                text1.text = percentage.ToString() + "%";*/
-            }
-            else
-            {
-                if (!change1)
+                
+                Vector3 temp = transform.rotation.eulerAngles;
+                temp.x = c;
+                transform.rotation = Quaternion.Euler(temp);
+              
+
+                for (int v = minAzimAngle; v <= maxAzimAngle; v += increment3)
                 {
-                    change1= true;
-                    goodToGo++;
-                    Debug.Log("goodToGo: " + goodToGo);
+                   
+
+                    transform.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
+
+
+                    for (int w = minObjRot; w <= maxObjRot; w += increment4)
+                    {
+                        Debug.Log("D : " + x + "Elev : " + c + "Azim : " + v + "Obj rot : " + w);
+                        foreach (Transform t in models)
+                        {
+                            Vector3 temp2 = t.rotation.eulerAngles;
+                            temp2.y = w;
+                            t.rotation = Quaternion.Euler(temp2);
+
+                        }
+                            int sceneInd = SceneManager.GetActiveScene().buildIndex;
+                            string imageName = "Img_" + index + "_Light" + GameManager.SliderValue + "_D" + x + "_Elev" + c + "_Azim" + v +"_ObjRot"+w+ "_Scene" + sceneInd + ".png";
+
+                            T1.LookAt(target);
+                            string path = "Images/" + GameManager.projectName + "/GroundTruthImages/" + imageName;
+                            ScreenCapture.CaptureScreenshot(path);
+                            yield return new WaitForEndOfFrame();
+                            Camera1.gameObject.SetActive(false);
+                            Camera2.gameObject.SetActive(true);
+                            T2.LookAt(target);
+                            string path2 = "Images/" + GameManager.projectName + "/NormalImages/" + imageName;
+                            ScreenCapture.CaptureScreenshot(path2);
+                            yield return new WaitForEndOfFrame();
+                            Camera2.gameObject.SetActive(false);
+                            Camera3.gameObject.SetActive(true);
+                            T3.LookAt(target);
+                            string path3 = "Images/" + GameManager.projectName + "/DepthImages/" + imageName;
+                            ScreenCapture.CaptureScreenshot(path3);
+                            yield return new WaitForEndOfFrame();
+                            Camera3.gameObject.SetActive(false);
+                            Camera1.gameObject.SetActive(true);
+                            index++;
+                        
+                    }
                 }
-            }
-            if (minElevAngle < maxElevAngle)
-            {
-                //T1.Rotate(increment2, 0, 0);
-                //T2.Rotate(increment2, 0, 0);
-                //T3.Rotate(increment2, 0, 0);
-                transform.Rotate(increment2, 0, 0);//need to rotate the parent for the children to rotate.
-                minElevAngle += increment2;
-                Debug.Log("X "+transform.rotation);
-                /*slider3.value = minElevAngle;
-                float percentage = (float)Math.Round(((float)minElevAngle / (float)maxElevAngle) * 100);
-                text3.text = percentage.ToString() + "%";*/
+
 
             }
-            else
-            {
-                if (!change2)
-                {
-                    change2= true;
-                    goodToGo++;
-                    Debug.Log("goodToGo: " + goodToGo);
-                }
-            }
-            if (minAzimAngle < maxAzimAngle)
-            {
-                Debug.Log("Azim angle :" + minAzimAngle);
-                /*T1.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
-                T2.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
-                T3.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);*/
-                transform.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
-                minAzimAngle += increment3;
-
-               /*slider2.value = minAzimAngle;
-                float percentage = (float)Math.Round(((float)minAzimAngle / (float)maxAzimAngle) * 100);
-                text2.text = percentage.ToString() + "%";*/
-
-            }
-            else
-            {
-                if (!change3)
-                {
-                    change3 = true;
-                    goodToGo++;
-                    Debug.Log("goodToGo: " + goodToGo);
-                }
-            }
-            T1.LookAt(target);
-            string path = "Images/" + GameManager.projectName + "/GroundTruthImages/Img" + index.ToString()+".png";
-            ScreenCapture.CaptureScreenshot(path);
-            yield return new WaitForEndOfFrame();
-            Camera1.gameObject.SetActive(false);
-            Camera2.gameObject.SetActive(true);
-            T2.LookAt(target);
-            string path2 = "Images/" + GameManager.projectName + "/NormalImages/Img" + index.ToString()+".png";
-            ScreenCapture.CaptureScreenshot(path2);
-            yield return new WaitForEndOfFrame();
-            Camera2.gameObject.SetActive(false);
-            Camera3.gameObject.SetActive(true);
-            T3.LookAt(target);
-            string path3 = "Images/" + GameManager.projectName + "/DepthImages/Img" + index.ToString()+".png";
-            ScreenCapture.CaptureScreenshot(path3);
-            yield return new WaitForEndOfFrame();
-            Camera3.gameObject.SetActive(false);
-            Camera1.gameObject.SetActive(true);
-            index++;
-  
         }
 
-        if(goodToGo==3)
-        {
-           // panel1.SetActive(false);
-            panel2.SetActive(true);
-            Debug.Log("YOURE DONE");
-        }
+        panel2.SetActive(true);
+        Debug.Log("YOURE DONE");
+
     }
 
     private void SetSegmentationEffect()
@@ -177,16 +148,16 @@ public class MoveCamera : MonoBehaviour
             var theTag = r.gameObject.tag;
             var id = getTheId(theTag);
             Debug.Log("object name :" + theTag + "object ID :" + id);
-            mpb.SetColor("_ObjectColor", ColorEncoding.EncodeIDAsColor(id,theTag));
+            mpb.SetColor("_ObjectColor", ColorEncoding.EncodeIDAsColor(id, theTag));
             mpb.SetColor("_CategoryColor", ColorEncoding.EncodeTagAsColor(theTag));//give a color by name
             r.SetPropertyBlock(mpb);
-            
+
         }
     }
     private int getTheId(string aTag)
     {
         int theId = 0;
-        switch(aTag)
+        switch (aTag)
         {
             case "AirbusA310":
                 theId = 105441;
@@ -224,4 +195,3 @@ public class MoveCamera : MonoBehaviour
         cam.clearFlags = CameraClearFlags.SolidColor;
     }
 }//for loop from min value to max value avec increment pour i++;
-

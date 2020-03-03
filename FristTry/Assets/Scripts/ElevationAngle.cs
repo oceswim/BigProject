@@ -76,7 +76,15 @@ public class ElevationAngle : MonoBehaviour
                 GameManager.changes++;
             }
             Debug.Log("ELEV: The step2 is now" + Step2.text);
-            GameManager.step2 = int.Parse(Step2.text);
+            int ste2 = int.Parse(Step2.text);
+            if (ste2 <= MAXANGLE)
+            {
+                GameManager.step2 = int.Parse(Step2.text);
+            }
+            else
+            {
+                GameManager.step2 = 5;
+            }
         }
         else
         {

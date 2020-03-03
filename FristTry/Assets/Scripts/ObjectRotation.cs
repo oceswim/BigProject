@@ -77,7 +77,15 @@ public class ObjectRotation : MonoBehaviour
                 GameManager.changes++;
             }
             Debug.Log("OBJ ROT: The step4 is now" + Step4.text);
-            GameManager.step4 = int.Parse(Step4.text);
+            int ste4 = int.Parse(Step4.text);
+            if (ste4 <= MAXANGLE)
+            {
+                GameManager.step4 = int.Parse(Step4.text);
+            }
+            else
+            {
+                GameManager.step4 = 45;
+            }
         }
         else
         {

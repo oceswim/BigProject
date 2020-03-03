@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
             //Then destroy this. Enforces singleton pattern: here can only ever be one instance of a GameManager.
             Destroy(gameObject);
 
-        DontDestroyOnLoad(this);
+//DontDestroyOnLoad(this);
     }
   
     public void StartProcess()

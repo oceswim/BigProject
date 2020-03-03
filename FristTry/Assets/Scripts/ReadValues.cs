@@ -5,7 +5,7 @@ using UnityEngine;
 public class ReadValues : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         Debug.Log("Welcome to the " + GameManager.SceneSelected + " scene");
         Debug.Log("The different variables are as follow:");
@@ -31,7 +31,7 @@ public class ReadValues : MonoBehaviour
             Debug.Log(s+"\n");
         }
            
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
@@ -39,3 +39,4 @@ public class ReadValues : MonoBehaviour
         
     }
 }
+
