@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class MoveCamera : MonoBehaviour
 {
-
+    
     private int minDist, maxDist, increment1,
         minElevAngle, maxElevAngle, increment2,
         minAzimAngle, maxAzimAngle, increment3,
@@ -66,12 +66,11 @@ public class MoveCamera : MonoBehaviour
         minAzimAngle = GameManager.azimuthMinAngle;
         maxAzimAngle = GameManager.azimuthMaxAngle;
         increment3 = GameManager.step3;
-
-
+        
         sceneInd = SceneManager.GetActiveScene().buildIndex;
-        path = "ImageClassifierPython/Projects/" + GameManager.projectName + "/NormalImages/";
-        path2 = "ImageClassifierPython/Projects/" + GameManager.projectName + "/DepthImages/";
-        path3 = "ImageClassifierPython/Projects/" + GameManager.projectName + "/GroundTruthImages/";
+        path = Application.dataPath + "/Projects/" + GameManager.projectName + "/NormalImages/";
+        path2 = Application.dataPath + "/Projects/" + GameManager.projectName + "/DepthImages/";
+        path3 = Application.dataPath + "/Projects/" + GameManager.projectName + "/GroundTruthImages/";
        
         StartCoroutine(RotateAndCapture());
     }
