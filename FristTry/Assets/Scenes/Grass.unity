@@ -1819,9 +1819,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7647918a899134e62b6b286276680e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera1: {fileID: 481745406}
-  Camera2: {fileID: 1383550282}
-  Camera3: {fileID: 1382824788}
+  Camera1: {fileID: 1382824788}
+  Camera2: {fileID: 481745406}
+  Camera3: {fileID: 1383550282}
   effectShader: {fileID: 4800000, guid: ff7ba9111bdff4e0db238bf386207378, type: 3}
   slider1: {fileID: 482626552}
   slider2: {fileID: 966586365}

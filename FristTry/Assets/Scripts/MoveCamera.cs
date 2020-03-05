@@ -15,7 +15,7 @@ public class MoveCamera : MonoBehaviour
         minAzimAngle, maxAzimAngle, increment3,
         minObjRot, maxObjRot, increment4;
     private Vector3 target = new Vector3(0, 0, 0);
-    int index, goodToGo;
+    private int index, goodToGo,sceneInd;
     public Camera Camera1, Camera2, Camera3;
     private Transform T1, T2, T3;
     public Shader effectShader;
@@ -26,10 +26,11 @@ public class MoveCamera : MonoBehaviour
     private bool once;
     private Transform[] models;
     public Transform spawners;
+    private string path, path2, path3;
     // Start is called before the first frame update
     void Start()
     {
-      
+
         once = false;
 
         models = new Transform[GameManager.models.Count];
@@ -45,13 +46,12 @@ public class MoveCamera : MonoBehaviour
 
         Camera2.renderingPath = RenderingPath.Forward;
         SetUpCameraWithReplacementShader(2, Color.white, Camera2);
-
-        Camera2.gameObject.SetActive(false);
-        Camera3.gameObject.SetActive(false);
+       
         T1 = Camera1.transform;
         T2 = Camera2.transform;
         T3 = Camera3.transform;
-
+        Camera2.enabled=false;
+        Camera3.enabled =false;
         index = 1;
         minObjRot = GameManager.objRotMinAngle;
         maxObjRot = GameManager.objRotMaxAngle;
@@ -68,10 +68,12 @@ public class MoveCamera : MonoBehaviour
         increment3 = GameManager.step3;
 
 
-
-
+        sceneInd = SceneManager.GetActiveScene().buildIndex;
+        path = "ImageClassifierPython/Projects/" + GameManager.projectName + "/NormalImages/";
+        path2 = "ImageClassifierPython/Projects/" + GameManager.projectName + "/DepthImages/";
+        path3 = "ImageClassifierPython/Projects/" + GameManager.projectName + "/GroundTruthImages/";
+       
         StartCoroutine(RotateAndCapture());
-
     }
     private IEnumerator RotateAndCapture() // for loop based on elevation angle + azim angle + dist value
     {
@@ -97,7 +99,7 @@ public class MoveCamera : MonoBehaviour
 
                     for (int w = minObjRot; w <= maxObjRot; w += increment4)
                     {
-                        Debug.Log("D : " + x + "Elev : " + c + "Azim : " + v + "Obj rot : " + w);
+                        //Debug.Log("D : " + x + "Elev : " + c + "Azim : " + v + "Obj rot : " + w);
                         foreach (Transform t in models)
                         {
                             Vector3 temp2 = t.rotation.eulerAngles;
@@ -105,30 +107,30 @@ public class MoveCamera : MonoBehaviour
                             t.rotation = Quaternion.Euler(temp2);
 
                         }
-                        int sceneInd = SceneManager.GetActiveScene().buildIndex;
-                        string imageName = "Img_" + index + "_Light" + GameManager.SliderValue + "_D" + x + "_Elev" + c + "_Azim" + v + "_ObjRot" + w + "_Scene" + sceneInd + ".png";
+                      
+                        string imageName ="Light" + GameManager.SliderValue + "_D" + x + "_Elev" + c + "_Azim" + v + "_ObjRot" + w + "_Scene" + sceneInd +"_"+index+ ".png";
+
+                        
                         T1.LookAt(target);
-                        string path, path2, path3;
-                        path = "Images/" + GameManager.projectName + "/GroundTruthImages/";
-                        path2 = "Images/" + GameManager.projectName + "/NormalImages/";
-                        path3 = "Images/" + GameManager.projectName + "/DepthImages/";
-                        yield return new WaitForEndOfFrame();
                         ScreenCapture.CaptureScreenshot(Path.Combine(path + imageName));
-                        yield return new WaitForEndOfFrame();
-                        Camera1.gameObject.SetActive(false);
-                        Camera2.gameObject.SetActive(true);
+                        Debug.Log(index + "_C1:" + path + "" + imageName);
+                        yield return new WaitForSeconds(.05f);
+                        Camera1.enabled=false;
+                        Camera2.enabled=true;
                         T2.LookAt(target);
 
                         ScreenCapture.CaptureScreenshot(Path.Combine(path2 + imageName));
-                        yield return new WaitForEndOfFrame();
-                        Camera2.gameObject.SetActive(false);
-                        Camera3.gameObject.SetActive(true);
+                        Debug.Log(index + "_C2:" + path2 + "" + imageName);
+                        yield return new WaitForSeconds(.05f);
+                        Camera2.enabled=false;
+                        Camera3.enabled=true;
                         T3.LookAt(target);
 
                         ScreenCapture.CaptureScreenshot(Path.Combine(path3 + imageName));
-                        yield return new WaitForEndOfFrame();
-                        Camera3.gameObject.SetActive(false);
-                        Camera1.gameObject.SetActive(true);
+                        Debug.Log(index + "_C3:" + path3 + "" + imageName);
+                        yield return new WaitForSeconds(.05f);
+                        Camera3.enabled=false;
+                        Camera1.enabled=true;
                         index++;
 
                     }

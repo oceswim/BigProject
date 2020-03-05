@@ -1244,4 +1244,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Grass.unity
   - Assets/Scenes/Desert.unity
-  playerPath: /Users/Oceswil83/Desktop/COURSFAC/BigProject/BUILDS:Mac/MAC/newBuild.app
+  playerPath: /Users/Oceswil83/Desktop/COURSFAC/BigProject/FixedBuild.app

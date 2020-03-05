@@ -46,31 +46,31 @@ public class GameManager : MonoBehaviour
              && projectName.Length>0 && SceneSelected.Length>0 && models.Count>0)*/
         if (models.Count > 0)
         {
-            Debug.Log("changes: " + changes);
+            
             if (changes == 14)
             {
                 Debug.Log("Switching scenes...");
                 LoadScene(SceneSelected);
-                if (!Directory.Exists("Images/" + projectName))
+                if (!Directory.Exists("ImageClassifierPython/Projects/" + projectName))
                {
                     //if it doesn't, create it
-                    Directory.CreateDirectory("Images/" + projectName); // returns a DirectoryInfo object
+                    Directory.CreateDirectory("ImageClassifierPython/Projects/" + projectName); // returns a DirectoryInfo object
                     CreateFolders();
 
                 }
                 else
                 {
-                  string[] dirs =  Directory.GetDirectories("Images/");
+                  string[] dirs =  Directory.GetDirectories("ImageClassifierPython/Projects/");
                     int count = 0;
                    foreach( string s in dirs)
                     {
-                        if (s.Contains("Images/" + projectName))
+                        if (s.Contains("ImageClassifierPython/Projects/" + projectName))
                         {
                             count++;
                         }
                     }
                     projectName = projectName + "(" + count.ToString() + ")";
-                    Directory.CreateDirectory("Images/" + projectName);
+                    Directory.CreateDirectory("ImageClassifierPython/Projects/" + projectName);
                     CreateFolders();
                 }
                
@@ -92,25 +92,25 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Switching scenes...");
         LoadScene(SceneSelected);
-        if (!Directory.Exists("Images/" + projectName))
+        if (!Directory.Exists("ImageClassifierPython/Projects/" + projectName))
         {
             //if it doesn't, create it
-            Directory.CreateDirectory("Images/" + projectName); // returns a DirectoryInfo object
+            Directory.CreateDirectory("ImageClassifierPython/Projects/" + projectName); // returns a DirectoryInfo object
             CreateFolders();
         }
         else
         {
-            string[] dirs = Directory.GetDirectories("Images/");
+            string[] dirs = Directory.GetDirectories("ImageClassifierPython/Projects/");
             int count = 0;
             foreach (string s in dirs)
             {
-                if (s.Equals("Images/" + projectName))
+                if (s.Equals("ImageClassifierPython/Projects/" + projectName))
                 {
                     count++;
                 }
             }
             projectName = projectName + "(" + count.ToString() + ")";
-            Directory.CreateDirectory("Images/" + projectName); 
+            Directory.CreateDirectory("ImageClassifierPython/Projects/" + projectName); 
             CreateFolders();
         }
 
@@ -118,9 +118,9 @@ public class GameManager : MonoBehaviour
     }
     private void CreateFolders()
     {
-        Directory.CreateDirectory("Images/" + projectName + "/NormalImages");
-        Directory.CreateDirectory("Images/" + projectName + "/GroundTruthImages");
-        Directory.CreateDirectory("Images/" + projectName + "/DepthImages");
+        Directory.CreateDirectory("ImageClassifierPython/Projects/" + projectName + "/NormalImages");
+        Directory.CreateDirectory("ImageClassifierPython/Projects/" + projectName + "/GroundTruthImages");
+        Directory.CreateDirectory("ImageClassifierPython/Projects/" + projectName + "/DepthImages");
     }
     public void LoadScene(string theName)
     {
