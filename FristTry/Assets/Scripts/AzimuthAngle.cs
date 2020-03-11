@@ -13,7 +13,7 @@ public class AzimuthAngle : MonoBehaviour
         input1 = input2 = input3 = false;
         GameManager.azimuthMinAngle = 0;
         GameManager.azimuthMaxAngle = 180;
-        GameManager.step3 = 30;
+        GameManager.step3 = 90;
     }
     public void MinAngleAzimInput()
     {

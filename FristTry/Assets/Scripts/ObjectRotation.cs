@@ -11,7 +11,7 @@ public class ObjectRotation : MonoBehaviour
         input1 = input2 = input3 = false;
         GameManager.objRotMinAngle = 0;
         GameManager.objRotMaxAngle = 360;
-        GameManager.step4 = 45;
+        GameManager.step4 = 180;
 
     }
     public void MinAngleObjRotInput()

@@ -13,7 +13,7 @@ public class DistanceToObject : MonoBehaviour
         input1 = input2 = input3 = false;
         GameManager.objMinDist = 0;
         GameManager.objMaxDist = 1000;
-        GameManager.step1 = 100;
+        GameManager.step1 = 500;
     }
     public void MinDistInput()
     {

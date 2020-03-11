@@ -11,7 +11,7 @@ public class ElevationAngle : MonoBehaviour
         input1 = input2 = input3 = false;
         GameManager.elevationMinAngle = 0;
         GameManager.elevationMaxAngle = MAXANGLE;
-        GameManager.step2 = 5;
+        GameManager.step2 = 45;
     }
     public void MinAngleInput()
     {

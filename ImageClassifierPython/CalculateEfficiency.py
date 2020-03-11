@@ -4,39 +4,47 @@ import numpy as np
 import cv2
 
 
-def get_boxes(pred, gt, imageName):
+def get_boxes(pred, gt):
     sizePred = len(pred)
     sizeGt = len(gt)
     iouList = []
-    truePos = 0;
-    falsePos = 0;
-    falseNeg = 0;
+    truePos = 0
+    falsePos = 0
+    print("no")
+    i = 0
+    for s in gt:
+        for t in pred:
+            result = bb_intersection_over_union(s, t)
+            iouList.append(result)
+    for n in iouList:
+        if n >= 0.5:
+            truePos += 1
+        elif n < 0.5:
+            falsePos += 1
     if sizePred < sizeGt:
-        print("no")
-        i = 0
-        for s in gt:
-            for t in pred:
-                result = bb_intersection_over_union(s, t)
-                iouList.append(result)
-        for n in iouList:
-            if n >= 0.5:
-                truePos += 1
-            elif n < 0.5:
-                falsePos += 1
         falseNeg = sizeGt - sizePred
-        print(truePos)
-        print(falsePos)
-        print(falseNeg)
-        precisionResults = precisionCalculation(truePos, falsePos)
-        recallResult = recallCalculation(truePos, falseNeg)
+    elif sizePred>sizeGt:
+        falseNeg = sizePred - sizeGt
+    else :
+        falseNeg =0
+    print(truePos)
+    print(falsePos)
+    print(falseNeg)
+    precisionResults = precisionCalculation(truePos, falsePos)
+    recallResult = recallCalculation(truePos, falseNeg)
+    if precisionResults + recallResult > 0:
         f1 = get_F1(precisionResults, recallResult)
-        print("f1 is: %.2f" % f1)
-    elif sizePred == sizeGt:
-        print("wow")
+    else:
+        f1 = 0
+    print("f1 is: %.2f" % f1)
+    return f1
 
 
 def precisionCalculation(Tp, Fp):
-    precision = float(Tp / (Tp + Fp))
+    if Tp + Fp > 0:
+        precision = float(Tp / (Tp + Fp))
+    else:
+        precision = 0
     print("Precision: ", precision)
     return precision
 

@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -16,9 +18,13 @@ public class GameManager : MonoBehaviour
     public static string projectName,SceneSelected;
     public static List<string> models;
     public static int changes;
-    public GameObject notInputEverything, noModels;
+    public bool notAllInput, noModels;
+    public bool change;
     private void Awake()
     {
+        noModels = false;
+        notAllInput = false;
+        
         SliderValue = objMinDist = objMaxDist = step1 = elevationMinAngle =
             elevationMaxAngle = step2 = azimuthMinAngle = azimuthMaxAngle = step3 =
             objRotMinAngle = objRotMaxAngle = step4 = minNoObj = maxNoObj = 0;
@@ -35,15 +41,12 @@ public class GameManager : MonoBehaviour
             //Then destroy this. Enforces singleton pattern: here can only ever be one instance of a GameManager.
             Destroy(gameObject);
 
-//DontDestroyOnLoad(this);
+         DontDestroyOnLoad(this);
     }
-  
+    
     public void StartProcess()
     {
-        /* if(SliderValue >= 0 && objMinDist > 0 && objMaxDist > 0 && step1 > 0 && elevationMinAngle >= 0 &&
-             elevationMaxAngle > 0 && step2 > 0 && azimuthMinAngle >= 0 && azimuthMaxAngle > 0 && step3 > 0 &&
-             objRotMinAngle >= 0 && objRotMaxAngle > 0 && step4 > 0 && minNoObj > 0 && maxNoObj > 0
-             && projectName.Length>0 && SceneSelected.Length>0 && models.Count>0)*/
+   
         if (models.Count > 0)
         {
             
@@ -78,13 +81,13 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                notInputEverything.SetActive(true);
+                notAllInput = true;
                 Debug.Log("Something's not right...");
             }
         }
         else
         {
-            noModels.SetActive(true);
+            noModels = true;
             Debug.Log("choose at least one model...");
         }
     }
@@ -116,12 +119,23 @@ public class GameManager : MonoBehaviour
 
 
     }
+    public void Reset()
+    {
+        SliderValue = objMinDist = objMaxDist = step1 = elevationMinAngle =
+            elevationMaxAngle = step2 = azimuthMinAngle = azimuthMaxAngle = step3 =
+            objRotMinAngle = objRotMaxAngle = step4 = minNoObj = maxNoObj = 0;
+        projectName = SceneSelected = "";
+        models = new List<string>();
+        changes = 0;
+
+    }
     private void CreateFolders()
     {
         Directory.CreateDirectory(Application.dataPath + "/Projects/" + projectName + "/NormalImages");
         Directory.CreateDirectory(Application.dataPath + "/Projects/" + projectName + "/GroundTruthImages");
         Directory.CreateDirectory(Application.dataPath + "/Projects/" + projectName + "/DepthImages");
     }
+   
     public void LoadScene(string theName)
     {
         SceneManager.LoadScene(theName);
