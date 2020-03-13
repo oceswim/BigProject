@@ -11,6 +11,38 @@ TagManager:
   - Jet
   - Motor
   - Floor
+  - Ka-50
+  - Bmwz4
+  - dodge
+  - Ferrari
+  - McLaren
+  - Porsche
+  - Ambulance
+  - Kangoo
+  - Volkswagen
+  - london_bus
+  - School_bus
+  - Tourist_bus
+  - Hawker
+  - Learjet
+  - Mi_24
+  - B2_Spirit
+  - Concord
+  - A380
+  - B747
+  - Huey
+  - Audi
+  - Mini
+  - Golf
+  - Cessna
+  - F35
+  - Mig_29
+  - AH-64D
+  - Combi
+  - Minivan
+  - Eurofighter
+  - Breguet14
+  - A757
   layers:
   - Default
   - TransparentFX
@@ -24,7 +56,7 @@ TagManager:
   - Objects
   - Vehicle
   - Camera
-  - 
+  - Car
   - 
   - 
   - 

@@ -165,25 +165,103 @@ public class MoveCamera : MonoBehaviour
         int theId = 0;
         switch (aTag)
         {
-            case "AirbusA310":
+            case "Audi":            //1
                 theId = 105441;
                 break;
-            case "Bus":
+            case "bmwz4":           //2
                 theId = 95442;
                 break;
-            case "Bicycle":
+            case "Mini":            //3
                 theId = 85443;
                 break;
-            case "Car":
+            case "Golf":            //4
                 theId = 75444;
                 break;
-            case "Jet":
+            case "Ambulance":       //5
                 theId = 65445;
                 break;
-            case "Motor":
+            case "Kangoo":          //6
                 theId = 55446;
                 break;
-            default:
+            case "Combi":           //7
+                theId = 45445;
+                break;
+            case "Minivan":         //8 
+                theId = 35446;
+                break;
+            case "dodge":           //9
+                theId = 25445;
+                break;
+            case "Ferrari":         //10
+                theId = 15446;
+                break;
+            case "McLaren":         //11
+                theId = 67445;
+                break;
+            case "Porsche":         //12
+                theId = 57446;
+                break;
+            case "Bus":         //13
+                theId = 47445;
+                break;
+            case "london_bus":         //14
+                theId = 37446;
+                break;
+            case "School_bus":         //15
+                theId = 27445;
+                break;
+            case "Tourist_bus":         //16
+                theId = 17446;
+                break;
+            case "Cessna":         //17
+                theId = 98445;
+                break;
+            case "Hawker":         //18
+                theId = 88446;
+                break;
+            case "LearJet":         //19
+                theId = 78445;
+                break;
+            case "Breguet14":         //20 
+                theId = 68446;
+                break;
+            case "B2_Spirit":         //21 
+                theId = 58446;
+                break;
+            case "F35":           //22
+                theId = 48445;
+                break;
+            case "Mig_29":         //23
+                theId = 38446;
+                break;
+            case "Eurofighter":         //24 
+                theId = 28445;
+                break;
+            case "AH-64D":         //25
+                theId = 18446;
+                break;
+            case "Huey":         //26
+                theId = 110445;
+                break;
+            case "Ka-50":         //27
+                theId = 120446;
+                break;
+            case "Mi_24":         //28
+                theId = 130445;
+                break;
+            case "A380":         //29
+                theId = 155446;
+                break;
+            case "B747":         //30
+                theId = 165445;
+                break;
+            case "Concord":         //31
+                theId = 150446;
+                break;
+            case "A757":         //32 
+                theId = 160445;
+                break;
+            default:        
                 theId = 45440;
                 break;
         }

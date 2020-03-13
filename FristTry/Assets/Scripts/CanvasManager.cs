@@ -28,4 +28,9 @@ public class CanvasManager : MonoBehaviour
     {
         GameManager.instance.StartProcess();
     }
+
+    public void Exit()
+    {
+        GameManager.instance.ExitApp();
+    }
 }

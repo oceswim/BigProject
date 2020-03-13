@@ -11,7 +11,7 @@ public class SpawnModel : MonoBehaviour
         int index = 0;
         for(int i =0;i<models.Length; i++) 
         {
-            if(GameManager.models.Contains(models[i].name))
+            if(GameManager.models.Contains(i))
             {
                
                 toSpawn = models[i];

@@ -849,8 +849,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: -11.52, y: 0.00000023841858}
+  m_SizeDelta: {x: 13.03, y: 13.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &75232788
 MonoBehaviour:
@@ -3563,8 +3563,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: 5.9, y: 0}
+  m_SizeDelta: {x: 11.8, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &335959269
 MonoBehaviour:
@@ -4735,7 +4735,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -18, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &397391542
 MonoBehaviour:
@@ -5523,8 +5523,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.5, y: -0.5}
-  m_SizeDelta: {x: -35, y: -13}
+  m_AnchoredPosition: {x: -5.88, y: 0.0000009536743}
+  m_SizeDelta: {x: -24.31, y: -5.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &430820250
 MonoBehaviour:
@@ -5546,7 +5546,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: AirBusA310
+  m_text: Car - Audi
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5574,8 +5574,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5591,7 +5591,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -5617,8 +5617,8 @@ MonoBehaviour:
     textComponent: {fileID: 430820250}
     characterCount: 10
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -11346,7 +11346,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.2}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12978,7 +12978,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1980497005}
   m_HandleRect: {fileID: 1980497004}
   m_Direction: 2
-  m_Value: 1.0000002
+  m_Value: 0.9999997
   m_Size: 0.58811796
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -15192,8 +15192,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5, y: -0.5}
-  m_SizeDelta: {x: -30, y: -3}
+  m_AnchoredPosition: {x: 4.0999985, y: 0.00000667572}
+  m_SizeDelta: {x: -15.39, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1467219112
 MonoBehaviour:
@@ -15224,7 +15224,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281479730
   m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -15243,11 +15243,11 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 9
+  m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_fontSizeMin: 10
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 513
@@ -15284,13 +15284,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1467219112}
-    characterCount: 0
+    characterCount: 8
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -18326,7 +18326,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1106953970}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.2
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19650,17 +19650,69 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: AirBusA310
+    - m_Text: Car - Audi
       m_Image: {fileID: 0}
-    - m_Text: Bicycle
+    - m_Text: Car - BMW
       m_Image: {fileID: 0}
-    - m_Text: Bus
+    - m_Text: Car - Mini Cooper
       m_Image: {fileID: 0}
-    - m_Text: Car
+    - m_Text: Car - Volkswagen
       m_Image: {fileID: 0}
-    - m_Text: Jet
+    - m_Text: Van - Ambulance
       m_Image: {fileID: 0}
-    - m_Text: Motor
+    - m_Text: Van - Kangoo
+      m_Image: {fileID: 0}
+    - m_Text: Van - Combi
+      m_Image: {fileID: 0}
+    - m_Text: Van - Minivan
+      m_Image: {fileID: 0}
+    - m_Text: Sports Car - Dodge
+      m_Image: {fileID: 0}
+    - m_Text: Sports Car - Ferrari
+      m_Image: {fileID: 0}
+    - m_Text: Sports Car - Mc Laren
+      m_Image: {fileID: 0}
+    - m_Text: Sports Car - Porsche
+      m_Image: {fileID: 0}
+    - m_Text: Bus - Bus
+      m_Image: {fileID: 0}
+    - m_Text: Bus - London Bus
+      m_Image: {fileID: 0}
+    - m_Text: Bus - School bus
+      m_Image: {fileID: 0}
+    - m_Text: Bus - Tourist Bus
+      m_Image: {fileID: 0}
+    - m_Text: Small Aircraft - Cessna
+      m_Image: {fileID: 0}
+    - m_Text: Small Aircraft - Hawker
+      m_Image: {fileID: 0}
+    - m_Text: Small aircraft - Learjet
+      m_Image: {fileID: 0}
+    - m_Text: Small aircrat - Breguet14
+      m_Image: {fileID: 0}
+    - m_Text: Jet - B2
+      m_Image: {fileID: 0}
+    - m_Text: Jet - F-35
+      m_Image: {fileID: 0}
+    - m_Text: Jet - Mig29
+      m_Image: {fileID: 0}
+    - m_Text: Jet - Eurofighter
+      m_Image: {fileID: 0}
+    - m_Text: Helicopter - AH64D
+      m_Image: {fileID: 0}
+    - m_Text: Helicopter - Huey
+      m_Image: {fileID: 0}
+    - m_Text: Helicopter - KA50
+      m_Image: {fileID: 0}
+    - m_Text: Helicopter - MI24
+      m_Image: {fileID: 0}
+    - m_Text: Aircraft - A380
+      m_Image: {fileID: 0}
+    - m_Text: Aircraft - B747
+      m_Image: {fileID: 0}
+    - m_Text: Aircraft - Concord
+      m_Image: {fileID: 0}
+    - m_Text: Aircraft - A757
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -21209,8 +21261,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1336587015}
-        m_MethodName: ExitApp
+      - m_Target: {fileID: 465515063}
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

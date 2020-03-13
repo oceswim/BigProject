@@ -1,0 +1,222 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 12.03.2020 14:09:58
+
+newmtl B_747_insideSG
+	Ns 2045.9999
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7800 0.7800 0.7800
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl B_747_engine_supportSG
+	Ns 1.1100
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.2500 0.2500 0.2500
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\support.jpg
+	map_Kd C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\support.jpg
+
+newmtl B_747_engine_trimSG
+	Ns 1.7100
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.8100 0.8100 0.8100
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\eng-steel.jpg
+	map_Kd C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\eng-steel.jpg
+
+newmtl B_747_engine_blackSG
+	Ns 2045.9999
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl B_747_engine_metalSG
+	Ns 3.2000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.6400 0.6400 0.6400
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\eng-back.jpg
+	map_Kd C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\eng-back.jpg
+
+newmtl B_747_engineSG
+	Ns 5.1600
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.5000 0.5000 0.5000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\engine.jpg
+	map_Kd C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\engine.jpg
+
+newmtl B_747_gearSG
+	Ns 11.5000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7000 0.7000 0.7000
+	Ks 0.3200 0.3200 0.3200
+	Ke 0.0000 0.0000 0.0000
+
+newmtl B_747_inside1SG
+	Ns 2045.9999
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7800 0.7800 0.7800
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl B_747_gear_chromeSG
+	Ns 44.6900
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.1300 0.1300 0.1300
+	Kd 0.1300 0.1300 0.1300
+	Ks 0.8900 0.8900 0.8900
+	Ke 0.0000 0.0000 0.0000
+
+newmtl B_747_gear_tireSG
+	Ns 4.7900
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.2400 0.2400 0.2400
+	Ks 0.1900 0.1900 0.1900
+	Ke 0.0000 0.0000 0.0000
+
+newmtl B_747_wing_lightSG
+	Ns 2045.9999
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7800 0.7800 0.7100
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl B_747_engine_rotorSG
+	Ns 11.5000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.3800 0.3800 0.3800
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\rotor.jpg
+	map_Kd C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\rotor.jpg
+
+newmtl B_747_bodySG
+	Ns 20.6300
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.1700 0.1700 0.1700
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\747-color bar.jpg
+	map_Kd C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\747-color bar.jpg
+
+newmtl B_747_frameSG
+	Ns 4.7900
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.3600 0.3600 0.3600
+	Ks 0.3100 0.3100 0.3100
+	Ke 0.0000 0.0000 0.0000
+
+newmtl B_747_glassSG
+	Ns 24.7600
+	Ni 1.5000
+	d 0.4900
+	Tr 0.5100
+	Tf 0.4900 0.4900 0.4900 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5400 0.5400 0.5400
+	Ks 1.0000 1.0000 1.0000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl B_747_tailSG
+	Ns 20.6300
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.1700 0.1700 0.1700
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\color.jpg
+	map_Kd C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\color.jpg
+
+newmtl B_747_wingSG
+	Ns 20.6300
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.1700 0.1700 0.1700
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\color.jpg
+	map_Kd C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Boeing747\56403_open3dmodel.com\56403_open3dmodel.com\Boeing 747\color.jpg

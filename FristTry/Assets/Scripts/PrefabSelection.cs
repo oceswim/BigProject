@@ -11,7 +11,8 @@ public class PrefabSelection : MonoBehaviour
     public TMP_Dropdown objDropDown;
     public TMP_Text minNumText, maxNumText;
     public Slider minNoObj, maxNoObj;
-    private List<string> prefabsAdded = new List<string>();
+    //private List<string> prefabsAdded = new List<string>();
+    private List<int> indexPrefabsAdded = new List<int>();
     private bool existing;
     public GameObject listElement,listContent,errorMessage1,errorMessage2;
 
@@ -25,11 +26,11 @@ public class PrefabSelection : MonoBehaviour
 
     public void AddObjToList()
     {
-        if (prefabsAdded.Count < 5)
+        if (indexPrefabsAdded.Count < 5)
         {
             string theValue = objDropDown.options[objDropDown.value].text;
-
-            foreach (string s in prefabsAdded)
+            int indexOfObject = objDropDown.value;
+            foreach (int s in indexPrefabsAdded)
             {
                 if (s.Equals(theValue))
                 {
@@ -40,13 +41,14 @@ public class PrefabSelection : MonoBehaviour
             }
             if (!existing)
             {
-                prefabsAdded.Add(theValue);
-                GameManager.models.Add(theValue);
-                Debug.Log(prefabsAdded.Count);
+                //prefabsAdded.Add(theValue);
+                indexPrefabsAdded.Add(indexOfObject);
+                GameManager.models.Add(indexOfObject);
+                Debug.Log(indexPrefabsAdded.Count);
                 GameObject newListElement = Instantiate(listElement);
                 newListElement.transform.parent = listContent.transform;
-                newListElement.name = theValue;
-                newListElement.GetComponent<TMP_Text>().text = prefabsAdded.Count + ") " + theValue;
+                newListElement.name = indexOfObject.ToString();
+                newListElement.GetComponent<TMP_Text>().text = indexPrefabsAdded.Count + ") " + theValue;
             }
             else
             {
@@ -62,14 +64,14 @@ public class PrefabSelection : MonoBehaviour
     }
     public void RemoveObjFromList()
     {
-        if(prefabsAdded.Count>0)
+        if(indexPrefabsAdded.Count>0)
         {
-            Debug.Log("destroying "+ prefabsAdded[(prefabsAdded.Count - 1)]);
-            string toDel = prefabsAdded[(prefabsAdded.Count - 1)];
+            Debug.Log("destroying "+ indexPrefabsAdded[(indexPrefabsAdded.Count - 1)]);
+            string toDel = indexPrefabsAdded[(indexPrefabsAdded.Count - 1)].ToString();
             GameObject toDestroy=GameObject.Find("Canvas/MainPanel/PrefabSelection/Texts/Scroll View/Viewport/Content/" +toDel);
             Destroy(toDestroy);
-            prefabsAdded.RemoveAt((prefabsAdded.Count - 1));
-            GameManager.models.RemoveAt((prefabsAdded.Count - 1));
+            indexPrefabsAdded.RemoveAt((indexPrefabsAdded.Count - 1));
+            GameManager.models.RemoveAt((indexPrefabsAdded.Count - 1));
         }
     }
     public void SetMinNoObj()

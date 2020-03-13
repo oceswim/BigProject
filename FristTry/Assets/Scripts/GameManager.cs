@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
         objRotMinAngle, objRotMaxAngle, step4,
         minNoObj, maxNoObj;
     public static string projectName,SceneSelected;
-    public static List<string> models;
+    //public static List<string> models;
+    public static List<int> models;
     public static int changes;
     public bool notAllInput, noModels;
     public bool change;
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
             elevationMaxAngle = step2 = azimuthMinAngle = azimuthMaxAngle = step3 =
             objRotMinAngle = objRotMaxAngle = step4 = minNoObj = maxNoObj = 0;
         projectName = SceneSelected = "";
-        models = new List<string>();
+        models = new List<int>();
         if (instance == null)
 
             //if not, set instance to this
@@ -125,7 +126,7 @@ public class GameManager : MonoBehaviour
             elevationMaxAngle = step2 = azimuthMinAngle = azimuthMaxAngle = step3 =
             objRotMinAngle = objRotMaxAngle = step4 = minNoObj = maxNoObj = 0;
         projectName = SceneSelected = "";
-        models = new List<string>();
+        models = new List<int>();
         changes = 0;
 
     }
@@ -144,7 +145,7 @@ public class GameManager : MonoBehaviour
     public void ExitApp()
     {
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+        EditorApplication.isPlaying = false;
 #elif UNITY_WEBPLAYER
          Application.OpenURL(webplayerQuitURL);
 #else

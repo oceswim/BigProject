@@ -1,0 +1,144 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 12.03.2020 13:16:59
+
+newmtl white_
+	Ns 100.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.8549 0.8392 0.8157
+	Ks 1.0000 1.0000 1.0000
+	Ke 0.0000 0.0000 0.0000
+	map_refl C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Concorde\11794_open3dmodel\LAKE3.jpg
+
+newmtl white_LHS
+	Ns 100.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.1294 0.1176 0.0980
+	Ks 0.5500 0.5500 0.5500
+	Ke 0.0000 0.0000 0.0000
+	map_Kd C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Concorde\11794_open3dmodel\mapLHS.tif
+	map_refl C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Concorde\11794_open3dmodel\LAKE3.jpg
+
+newmtl white_RHS
+	Ns 100.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.1137 0.1059 0.0902
+	Ks 0.4900 0.4900 0.4900
+	Ke 0.0000 0.0000 0.0000
+	map_Kd C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Concorde\11794_open3dmodel\mapRHS.tif
+	map_refl C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Concorde\11794_open3dmodel\LAKE3.jpg
+
+newmtl black_
+	Ns 36.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0039
+	Kd 0.2471 0.2510 0.2471
+	Ks 0.2916 0.2916 0.2916
+	Ke 0.0000 0.0000 0.0000
+
+newmtl metal_frame
+	Ns 56.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.8078 0.6510 0.3216
+	Ks 0.4800 0.4800 0.4800
+	Ke 0.0000 0.0000 0.0000
+
+newmtl black_rubber
+	Ns 17.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0039 0.0039 0.0039
+	Kd 0.3216 0.2667 0.2392
+	Ks 0.3300 0.3300 0.3300
+	Ke 0.0000 0.0000 0.0000
+
+newmtl wheel_metal
+	Ns 79.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0039 0.0235 0.0275
+	Kd 0.1647 0.1137 0.0471
+	Ks 1.0000 1.0000 1.0000
+	Ke 0.0000 0.0000 0.0000
+	map_refl C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Concorde\11794_open3dmodel\LAKE3.jpg
+
+newmtl metal
+	Ns 76.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0196 0.0235
+	Kd 0.1843 0.1294 0.1020
+	Ks 1.0000 1.0000 1.0000
+	Ke 0.0000 0.0000 0.0000
+	map_refl C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Concorde\11794_open3dmodel\LAKE3.jpg
+
+newmtl glass
+	Ns 100.0000
+	Ni 1.5000
+	d 0.3800
+	Tr 0.6200
+	Tf 0.3800 0.3800 0.3800 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0510 0.1961 0.0039
+	Ks 1.0000 1.0000 1.0000
+	Ke 0.0000 0.0000 0.0000
+	map_refl C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Concorde\11794_open3dmodel\LAKE3.jpg
+
+newmtl white__2_sided
+	Ns 100.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.8549 0.8392 0.8157
+	Ks 1.0000 1.0000 1.0000
+	Ke 0.0000 0.0000 0.0000
+	map_refl C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Concorde\11794_open3dmodel\LAKE3.jpg
+
+newmtl outlets_black
+	Ns 36.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.2471 0.2510 0.2471
+	Ks 0.2916 0.2916 0.2916
+	Ke 0.0000 0.0000 0.0000
+	map_refl C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Concorde\11794_open3dmodel\LAKE3.jpg

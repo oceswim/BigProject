@@ -1,0 +1,102 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 12.03.2020 13:54:15
+
+newmtl Material__55
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Learjet\56401_open3dmodel.com\56401_open3dmodel.com\jet\atlasjet-texture\atlasjet-white.png
+	map_Kd C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Learjet\56401_open3dmodel.com\56401_open3dmodel.com\jet\atlasjet-texture\atlasjet-white.png
+
+newmtl jetanima_cam_NONE
+	Ns 96.0784
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.5000 0.5000 0.5000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl jetanima_motor
+	Ns 96.0784
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.6400 0.6400 0.6400
+	Ks 0.5000 0.5000 0.5000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl jetanima_motor_metal
+	Ns 96.0784
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.6400 0.6400 0.6400
+	Ks 0.5000 0.5000 0.5000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl jetanima_Material_001
+	Ns 96.0784
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.6400 0.6400 0.6400
+	Ks 0.5000 0.5000 0.5000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl jetanima_u√_ak_001
+	Ns 92.1569
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5120 0.5120 0.5120
+	Ks 0.5000 0.5000 0.5000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Learjet\56401_open3dmodel.com\56401_open3dmodel.com\jet\atlasjet-texture\texture.png
+	map_Kd C:\Users\v4si1\Desktop\Leonardo Assets\_08_Large aircraft\Learjet\56401_open3dmodel.com\56401_open3dmodel.com\jet\atlasjet-texture\texture.png
+
+newmtl jetanima_Material_002
+	Ns 92.1569
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5120 0.5120 0.5120
+	Ks 0.5000 0.5000 0.5000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl jetanima_Material_003
+	Ns 92.1569
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5120 0.5120 0.5120
+	Ks 0.5000 0.5000 0.5000
+	Ke 0.0000 0.0000 0.0000
