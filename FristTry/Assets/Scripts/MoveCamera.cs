@@ -71,7 +71,7 @@ public class MoveCamera : MonoBehaviour
         path = Application.dataPath + "/Projects/" + GameManager.projectName + "/NormalImages/";
         path2 = Application.dataPath + "/Projects/" + GameManager.projectName + "/DepthImages/";
         path3 = Application.dataPath + "/Projects/" + GameManager.projectName + "/GroundTruthImages/";
-       
+
         StartCoroutine(RotateAndCapture());
     }
     private IEnumerator RotateAndCapture() // for loop based on elevation angle + azim angle + dist value
@@ -150,7 +150,6 @@ public class MoveCamera : MonoBehaviour
         var mpb = new MaterialPropertyBlock();
         foreach (var r in renderers)
         {
-            //var id = Math.Abs(r.gameObject.GetInstanceID());
             var theTag = r.gameObject.tag;
             var id = getTheId(theTag);
             Debug.Log("object name :" + theTag + "object ID :" + id);
@@ -168,8 +167,8 @@ public class MoveCamera : MonoBehaviour
             case "Audi":            //1
                 theId = 105441;
                 break;
-            case "bmwz4":           //2
-                theId = 95442;
+            case "Bmwz4":           //2
+                theId = 95662;
                 break;
             case "Mini":            //3
                 theId = 85443;
@@ -219,7 +218,7 @@ public class MoveCamera : MonoBehaviour
             case "Hawker":         //18
                 theId = 88446;
                 break;
-            case "LearJet":         //19
+            case "Learjet":         //19
                 theId = 78445;
                 break;
             case "Breguet14":         //20 
@@ -262,7 +261,7 @@ public class MoveCamera : MonoBehaviour
                 theId = 160445;
                 break;
             default:        
-                theId = 45440;
+                theId = 999999;
                 break;
         }
 
@@ -278,4 +277,4 @@ public class MoveCamera : MonoBehaviour
         cam.backgroundColor = clearColor;
         cam.clearFlags = CameraClearFlags.SolidColor;
     }
-}//for loop from min value to max value avec increment pour i++;
+}
