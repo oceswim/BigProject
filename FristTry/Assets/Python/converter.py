@@ -11,11 +11,12 @@ from shapely.geometry import Polygon, MultiPolygon  # (pip install Shapely)
 from PIL import Image
 
 
-def main(argv):
+# def main(argv):
+def main():
     print("YO")
-    dir = argv[0]
-    projectName = argv[1]
-    convert_ground_truth(dir, projectName)
+    # d = argv[0]
+    # projectName = argv[1]
+    # convert_ground_truth(d, projectName)
 
 
 def get_image_index(name):
@@ -275,4 +276,5 @@ def create_sub_mask_annotation(sub_mask, image_id, category_id, class_name, supe
 
 
 if __name__ == "__main__":
-   main(sys.argv[1:])
+    main()
+    # main(sys.argv[1:])

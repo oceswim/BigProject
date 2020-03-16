@@ -4,12 +4,13 @@ using IronPython.Hosting;
 using System.IO;
 using System.Text;
 using System;
+using Microsoft.Scripting.Hosting;
 
 public class PythonRunner : MonoBehaviour
 {
     public void Start()
     {
-        var engine = Python.CreateEngine();
+        /*var engine = Python.CreateEngine();
 
         var libs = new[]{Application.dataPath + "/Plugins/Lib"};
         engine.SetSearchPaths(libs);
@@ -40,6 +41,11 @@ public class PythonRunner : MonoBehaviour
         Console.WriteLine("ERRORS:");
         Console.WriteLine(str(errors.ToArray()));
         Console.WriteLine();
-        Console.WriteLine(str(results.ToArray()));
+        Console.WriteLine(str(results.ToArray()));*/
+        ScriptEngine engine = Python.CreateEngine();
+        string path = Application.dataPath + "/Python/converter.py";
+        var libs = new[] { Application.dataPath + "/Plugins/Lib" };
+        engine.SetSearchPaths(libs);
+        engine.ExecuteFile(path);
     }
 }
