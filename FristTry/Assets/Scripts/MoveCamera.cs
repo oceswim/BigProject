@@ -15,15 +15,13 @@ public class MoveCamera : MonoBehaviour
         minAzimAngle, maxAzimAngle, increment3,
         minObjRot, maxObjRot, increment4;
     private Vector3 target = new Vector3(0, 0, 0);
-    private int index, goodToGo,sceneInd;
+    private int index,sceneInd;
     public Camera Camera1, Camera2, Camera3;
     private Transform T1, T2, T3;
     public Shader effectShader;
-    private bool change1, change2, change3;
     public Slider slider1, slider2, slider3;
     public TMP_Text text1, text2, text3;
     public GameObject panel2; //panel1
-    private bool once;
     private Transform[] models;
     public Transform spawners;
     private string path, path2, path3;
@@ -31,15 +29,12 @@ public class MoveCamera : MonoBehaviour
     void Start()
     {
 
-        once = false;
-
         models = new Transform[GameManager.models.Count];
         for (int i = 0; i < models.Length; i++)
         {
             Transform parent = spawners.GetChild(i);
             models[i] = parent.GetChild(0);
         }
-        change1 = change2 = change3 = false;
         SetSegmentationEffect();
         Camera3.renderingPath = RenderingPath.Forward;
         SetUpCameraWithReplacementShader(0, Color.gray, Camera3);
@@ -52,7 +47,6 @@ public class MoveCamera : MonoBehaviour
         T3 = Camera3.transform;
         Camera2.enabled=false;
         Camera3.enabled =false;
-        index = 1;
         minObjRot = GameManager.objRotMinAngle;
         maxObjRot = GameManager.objRotMaxAngle;
         increment4 = GameManager.step4;

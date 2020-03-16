@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: ff453e39d2cf548a0b1edc55a4d80e1b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: STIXSizeFourSym
+  fontNames:
+  - STIXSizeFourSym
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4445c01954762439b9c1dd327c86f569, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
