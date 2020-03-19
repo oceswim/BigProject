@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -9,13 +8,13 @@ using UnityEngine.SceneManagement;
 
 public class MoveCamera : MonoBehaviour
 {
-    
+
     private int minDist, maxDist, increment1,
         minElevAngle, maxElevAngle, increment2,
         minAzimAngle, maxAzimAngle, increment3,
         minObjRot, maxObjRot, increment4;
     private Vector3 target = new Vector3(0, 0, 0);
-    private int index,sceneInd;
+    private int index, sceneInd;
     public Camera Camera1, Camera2, Camera3;
     private Transform T1, T2, T3;
     public Shader effectShader;
@@ -25,7 +24,9 @@ public class MoveCamera : MonoBehaviour
     private Transform[] models;
     public Transform spawners;
     private string path, path2, path3;
+    private float height;
 
+    //public GameObject myPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,12 +43,12 @@ public class MoveCamera : MonoBehaviour
 
         Camera2.renderingPath = RenderingPath.Forward;
         SetUpCameraWithReplacementShader(2, Color.white, Camera2);
-       
+
         T1 = Camera1.transform;
         T2 = Camera2.transform;
         T3 = Camera3.transform;
-        Camera2.enabled=false;
-        Camera3.enabled =false;
+        Camera2.enabled = false;
+        Camera3.enabled = false;
         minObjRot = GameManager.objRotMinAngle;
         maxObjRot = GameManager.objRotMaxAngle;
         increment4 = GameManager.step4;
@@ -55,7 +56,7 @@ public class MoveCamera : MonoBehaviour
         minDist = GameManager.objMinDist;
         maxDist = GameManager.objMaxDist;
         increment1 = GameManager.step1;
-        Debug.Log(minDist + " mind " + maxDist + " maxd " + increment1+" inc ");
+        Debug.Log(minDist + " mind " + maxDist + " maxd " + increment1 + " inc ");
         minElevAngle = GameManager.elevationMinAngle;
         maxElevAngle = GameManager.elevationMaxAngle;
         increment2 = GameManager.step2;
@@ -63,6 +64,8 @@ public class MoveCamera : MonoBehaviour
         maxAzimAngle = GameManager.azimuthMaxAngle;
         increment3 = GameManager.step3;
 
+        height = transform.position.y;
+        Debug.Log("Height:" + height);
 
         sceneInd = SceneManager.GetActiveScene().buildIndex;
         path = Application.dataPath + "/Projects/" + GameManager.projectName + "/NormalImages/";
@@ -71,64 +74,85 @@ public class MoveCamera : MonoBehaviour
 
         StartCoroutine(RotateAndCapture());
     }
+    public static void CartesianToSpherical(Vector3 cartCoords, out float outRadius, out float outPolar, out float outElevation)
+    {
+        if (cartCoords.x == 0)
+            cartCoords.x = Mathf.Epsilon;
+        outRadius = Mathf.Sqrt((cartCoords.x * cartCoords.x)
+                        + (cartCoords.y * cartCoords.y)
+                        + (cartCoords.z * cartCoords.z));
+        outPolar = Mathf.Atan(cartCoords.z / cartCoords.x);
+        if (cartCoords.x < 0)
+            outPolar += Mathf.PI;
+        outElevation = Mathf.Asin(cartCoords.y / outRadius);
+    }
+
+    public static void SphericalToCartesian(float radius, float polar, float elevation, out Vector3 outCart)
+    {
+        float a = radius * Mathf.Cos(elevation);
+        outCart.x = a * Mathf.Cos(polar);
+        outCart.y = radius * Mathf.Sin(elevation);
+        outCart.z = a * Mathf.Sin(polar);
+    }
     private IEnumerator RotateAndCapture() // for loop based on elevation angle + azim angle + dist value
     {
+        Vector3 outCart;
+  
         for (int x = minDist; x <= maxDist; x += increment1)
         {
 
-            transform.Translate(0, 0, -x);
-
-
-                for (int v = minAzimAngle; v <= maxAzimAngle; v += increment3)
+            for (int v = minAzimAngle; v <= maxAzimAngle; v += increment3)
+            {
+                for (int c = minElevAngle; c <= maxElevAngle; c += increment2)
                 {
+                    float eef = (float)(3.14 / 180.0) * (float)(90 - c);
+                    float ppf = (float)(3.14 / 180.0) * (float)v;
+                    SphericalToCartesian((float)x, ppf, eef, out outCart);
+                    //print(outCart);
+                    // Instantiate at position <outCart> and zero rotation.
 
-                    transform.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
-
-
-                    for (int c = minElevAngle; c <= maxElevAngle; c += increment2)
+                    //Instantiate(myPrefab, outCart, Quaternion.identity);
+                    transform.position = outCart;
+                    transform.rotation = Quaternion.LookRotation(Vector3.zero);
+                    Debug.Log("POSIITON:" + transform.position);
+                    for (int w = minObjRot; w <= maxObjRot; w += increment4)
                     {
 
-                        Vector3 temp = transform.rotation.eulerAngles;
-                        temp.x = c;
-                        transform.rotation = Quaternion.Euler(temp);
-
-                   
-
-                      for (int w = minObjRot; w <= maxObjRot; w += increment4)
+                        foreach (Transform t in models)
                         {
-      
-                            foreach (Transform t in models)
-                            {
-                                Vector3 temp2 = t.rotation.eulerAngles;
-                                temp2.y = w;
-                                t.rotation = Quaternion.Euler(temp2);
+                            Vector3 temp2 = t.rotation.eulerAngles;
+                            temp2.y = w;
+                            t.rotation = Quaternion.Euler(temp2);
 
-                            }
-                      
-                            string imageName ="Light" + GameManager.SliderValue + "_D" + x + "_Azim" + v + "_Elev" + c + "_ObjRot" + w + "_Scene" + sceneInd +"_"+index+ ".png";
-
+                        }
                         
-                            //T1.LookAt(target);
-                            ScreenCapture.CaptureScreenshot(Path.Combine(path + imageName));
-                            Debug.Log(index + "_C1:" + path + "" + imageName);
-                            yield return new WaitForSeconds(.05f);
-                            Camera1.enabled=false;
-                            Camera2.enabled=true;
-                            //T2.LookAt(target);
+                        // TODO: Place camera at position <outCart> and set direction to (0, 0, 0)
+                        //       Capture RGB image, depthmap, ground truth map
 
-                            ScreenCapture.CaptureScreenshot(Path.Combine(path2 + imageName));
-                            Debug.Log(index + "_C2:" + path2 + "" + imageName);
-                            yield return new WaitForSeconds(.05f);
-                            Camera2.enabled=false;
-                            Camera3.enabled=true;
-                           // T3.LookAt(target);
+                        //Rotate Objects
+                        //for (int aa = minAngleRot; ee <= maxAngleRot; ee = ee + stepAngleRot)
+                        string imageName = "Light" + GameManager.SliderValue + "_D" + x + "_Azim" + v + "_Elev" + c + "_ObjRot" + w + "_Scene" + sceneInd + "_" + index + ".png";
 
-                            ScreenCapture.CaptureScreenshot(Path.Combine(path3 + imageName));
-                            Debug.Log(index + "_C3:" + path3 + "" + imageName);
-                            yield return new WaitForSeconds(.05f);
-                            Camera3.enabled=false;
-                            Camera1.enabled=true;
-                            index++;
+                        T1.LookAt(target);
+                        ScreenCapture.CaptureScreenshot(Path.Combine(path + imageName));
+
+                        yield return new WaitForSeconds(.05f);
+                        Camera1.enabled = false;
+                        Camera2.enabled = true;
+                        T2.LookAt(target);
+
+                        ScreenCapture.CaptureScreenshot(Path.Combine(path2 + imageName));
+
+                        yield return new WaitForSeconds(.05f);
+                        Camera2.enabled = false;
+                        Camera3.enabled = true;
+                        T3.LookAt(target);
+
+                        ScreenCapture.CaptureScreenshot(Path.Combine(path3 + imageName));
+                        yield return new WaitForSeconds(.05f);
+                        Camera3.enabled = false;
+                        Camera1.enabled = true;
+                        index++;
 
                     }
                 }
@@ -136,6 +160,7 @@ public class MoveCamera : MonoBehaviour
 
             }
         }
+
 
         panel2.SetActive(true);
         Debug.Log("YOURE DONE");
@@ -258,7 +283,7 @@ public class MoveCamera : MonoBehaviour
             case "A757":         //32 
                 theId = 160445;
                 break;
-            default:        
+            default:
                 theId = 999999;
                 break;
         }

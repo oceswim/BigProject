@@ -5,17 +5,17 @@ public class RotateObject : MonoBehaviour
 {
     public GameObject myPrefab;
 
-    public int minDist = GameManager.objMinDist;
-    public int maxDist = GameManager.objMaxDist;
-    public int stepDist = GameManager.step1;
+    public int minDist = 200;
+    public int maxDist = 600;
+    public int stepDist = 200;
 
-    public int minElev = GameManager.elevationMinAngle;
-    public int maxElev = GameManager.elevationMaxAngle;
-    public int stepElev = GameManager.step2;
+    public int minElev = 0;
+    public int maxElev = 90;
+    public int stepElev = 15;
 
-    public int minAzim = GameManager.azimuthMinAngle;
-    public int maxAzim = GameManager.azimuthMaxAngle;
-    public int stepAzim = GameManager.step3;
+    public int minAzim = 0;
+    public int maxAzim = 180;
+    public int stepAzim = 180;
 
     public static void CartesianToSpherical(Vector3 cartCoords, out float outRadius, out float outPolar, out float outElevation)
     {
