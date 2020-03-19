@@ -30,7 +30,7 @@ public class MoveCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        index = 0;
         models = new Transform[GameManager.models.Count];
         for (int i = 0; i < models.Length; i++)
         {
@@ -125,13 +125,8 @@ public class MoveCamera : MonoBehaviour
                             t.rotation = Quaternion.Euler(temp2);
 
                         }
-                        
-                        // TODO: Place camera at position <outCart> and set direction to (0, 0, 0)
-                        //       Capture RGB image, depthmap, ground truth map
-
-                        //Rotate Objects
-                        //for (int aa = minAngleRot; ee <= maxAngleRot; ee = ee + stepAngleRot)
-                        string imageName = "Light" + GameManager.SliderValue + "_D" + x + "_Azim" + v + "_Elev" + c + "_ObjRot" + w + "_Scene" + sceneInd + "_" + index + ".png";
+                        string elevValue = (90-c).ToString();
+                        string imageName = "Light" + GameManager.SliderValue + "_D" + x + "_Azim" + v + "_Elev"+ elevValue+ "_ObjRot" + w + "_Scene" + sceneInd + "_" + index + ".png";
 
                         T1.LookAt(target);
                         ScreenCapture.CaptureScreenshot(Path.Combine(path + imageName));
