@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class AzimuthAngle : MonoBehaviour
 {
-    private const int MAXANGLE = 180;
+    private const int MAXANGLE = 360;
     public TMP_InputField MinAngleAzim, MaxAngleAzim, Step3;
     private bool input1, input2, input3;
     // Start is called before the first frame update
@@ -12,8 +12,8 @@ public class AzimuthAngle : MonoBehaviour
     {
         input1 = input2 = input3 = false;
         GameManager.azimuthMinAngle = 0;
-        GameManager.azimuthMaxAngle = 180;
-        GameManager.step3 = 90;
+        GameManager.azimuthMaxAngle = 360;
+        GameManager.step3 = 60;
     }
     public void MinAngleAzimInput()
     {
@@ -79,13 +79,13 @@ public class AzimuthAngle : MonoBehaviour
             }
             Debug.Log("AZIM ANGLE: The step3 is now" + Step3.text);
             int ste3 = int.Parse(Step3.text);
-            if (ste3 <= MAXANGLE & ste3>=30)
+            if (ste3 <= MAXANGLE & ste3>0)
             {
                 GameManager.step3 = int.Parse(Step3.text);
             }
             else
             {
-                GameManager.step3 = 30;
+                GameManager.step3 = 5;
             }
         }
         else

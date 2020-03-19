@@ -10,8 +10,8 @@ public class ObjectRotation : MonoBehaviour
     {
         input1 = input2 = input3 = false;
         GameManager.objRotMinAngle = 0;
-        GameManager.objRotMaxAngle = 360;
-        GameManager.step4 = 180;
+        GameManager.objRotMaxAngle = 0;
+        GameManager.step4 = 0;
 
     }
     public void MinAngleObjRotInput()
@@ -78,13 +78,13 @@ public class ObjectRotation : MonoBehaviour
             }
             Debug.Log("OBJ ROT: The step4 is now" + Step4.text);
             int ste4 = int.Parse(Step4.text);
-            if (ste4 <= MAXANGLE)
+            if (ste4 <= MAXANGLE && ste4>0)
             {
                 GameManager.step4 = int.Parse(Step4.text);
             }
             else
             {
-                GameManager.step4 = 45;
+                GameManager.step4 = 5;
             }
         }
         else

@@ -25,6 +25,7 @@ public class MoveCamera : MonoBehaviour
     private Transform[] models;
     public Transform spawners;
     private string path, path2, path3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,13 +55,15 @@ public class MoveCamera : MonoBehaviour
         minDist = GameManager.objMinDist;
         maxDist = GameManager.objMaxDist;
         increment1 = GameManager.step1;
+        Debug.Log(minDist + " mind " + maxDist + " maxd " + increment1+" inc ");
         minElevAngle = GameManager.elevationMinAngle;
         maxElevAngle = GameManager.elevationMaxAngle;
         increment2 = GameManager.step2;
         minAzimAngle = GameManager.azimuthMinAngle;
         maxAzimAngle = GameManager.azimuthMaxAngle;
         increment3 = GameManager.step3;
-        
+
+
         sceneInd = SceneManager.GetActiveScene().buildIndex;
         path = Application.dataPath + "/Projects/" + GameManager.projectName + "/NormalImages/";
         path2 = Application.dataPath + "/Projects/" + GameManager.projectName + "/DepthImages/";
@@ -75,56 +78,57 @@ public class MoveCamera : MonoBehaviour
 
             transform.Translate(0, 0, -x);
 
-            for (int c = minElevAngle; c <= maxElevAngle; c += increment2)
-            {
-
-                Vector3 temp = transform.rotation.eulerAngles;
-                temp.x = c;
-                transform.rotation = Quaternion.Euler(temp);
-
 
                 for (int v = minAzimAngle; v <= maxAzimAngle; v += increment3)
                 {
 
-
                     transform.RotateAround(target, new Vector3(0.0f, 1.0f, 0.0f), increment3);
 
 
-                    for (int w = minObjRot; w <= maxObjRot; w += increment4)
+                    for (int c = minElevAngle; c <= maxElevAngle; c += increment2)
                     {
-                        //Debug.Log("D : " + x + "Elev : " + c + "Azim : " + v + "Obj rot : " + w);
-                        foreach (Transform t in models)
-                        {
-                            Vector3 temp2 = t.rotation.eulerAngles;
-                            temp2.y = w;
-                            t.rotation = Quaternion.Euler(temp2);
 
-                        }
+                        Vector3 temp = transform.rotation.eulerAngles;
+                        temp.x = c;
+                        transform.rotation = Quaternion.Euler(temp);
+
+                   
+
+                      for (int w = minObjRot; w <= maxObjRot; w += increment4)
+                        {
+      
+                            foreach (Transform t in models)
+                            {
+                                Vector3 temp2 = t.rotation.eulerAngles;
+                                temp2.y = w;
+                                t.rotation = Quaternion.Euler(temp2);
+
+                            }
                       
-                        string imageName ="Light" + GameManager.SliderValue + "_D" + x + "_Elev" + c + "_Azim" + v + "_ObjRot" + w + "_Scene" + sceneInd +"_"+index+ ".png";
+                            string imageName ="Light" + GameManager.SliderValue + "_D" + x + "_Azim" + v + "_Elev" + c + "_ObjRot" + w + "_Scene" + sceneInd +"_"+index+ ".png";
 
                         
-                        T1.LookAt(target);
-                        ScreenCapture.CaptureScreenshot(Path.Combine(path + imageName));
-                        Debug.Log(index + "_C1:" + path + "" + imageName);
-                        yield return new WaitForSeconds(.05f);
-                        Camera1.enabled=false;
-                        Camera2.enabled=true;
-                        T2.LookAt(target);
+                            //T1.LookAt(target);
+                            ScreenCapture.CaptureScreenshot(Path.Combine(path + imageName));
+                            Debug.Log(index + "_C1:" + path + "" + imageName);
+                            yield return new WaitForSeconds(.05f);
+                            Camera1.enabled=false;
+                            Camera2.enabled=true;
+                            //T2.LookAt(target);
 
-                        ScreenCapture.CaptureScreenshot(Path.Combine(path2 + imageName));
-                        Debug.Log(index + "_C2:" + path2 + "" + imageName);
-                        yield return new WaitForSeconds(.05f);
-                        Camera2.enabled=false;
-                        Camera3.enabled=true;
-                        T3.LookAt(target);
+                            ScreenCapture.CaptureScreenshot(Path.Combine(path2 + imageName));
+                            Debug.Log(index + "_C2:" + path2 + "" + imageName);
+                            yield return new WaitForSeconds(.05f);
+                            Camera2.enabled=false;
+                            Camera3.enabled=true;
+                           // T3.LookAt(target);
 
-                        ScreenCapture.CaptureScreenshot(Path.Combine(path3 + imageName));
-                        Debug.Log(index + "_C3:" + path3 + "" + imageName);
-                        yield return new WaitForSeconds(.05f);
-                        Camera3.enabled=false;
-                        Camera1.enabled=true;
-                        index++;
+                            ScreenCapture.CaptureScreenshot(Path.Combine(path3 + imageName));
+                            Debug.Log(index + "_C3:" + path3 + "" + imageName);
+                            yield return new WaitForSeconds(.05f);
+                            Camera3.enabled=false;
+                            Camera1.enabled=true;
+                            index++;
 
                     }
                 }

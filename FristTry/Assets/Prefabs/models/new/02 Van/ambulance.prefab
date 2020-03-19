@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 828727644709984314}
   m_Layer: 0
   m_Name: headlght
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 8940774617134350427}
   m_Layer: 0
   m_Name: wheel
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 5121124174147220459}
   m_Layer: 0
   m_Name: headturn
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -983,7 +983,7 @@ GameObject:
   - component: {fileID: 3524247591860888132}
   m_Layer: 0
   m_Name: Sphere02
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1060,7 +1060,7 @@ GameObject:
   - component: {fileID: 8818486763386930543}
   m_Layer: 0
   m_Name: Ellipse01
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1301,8 +1301,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014138705527516682}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 9.6, z: -0}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 13.8, z: -0}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 8203450984761761493}
@@ -1337,7 +1337,7 @@ Transform:
   - {fileID: 713663971217328402}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!1 &2153909281092559968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,7 +1351,7 @@ GameObject:
   - component: {fileID: 4730276574644265041}
   m_Layer: 0
   m_Name: glassblk
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1428,7 +1428,7 @@ GameObject:
   - component: {fileID: 5157074388477457321}
   m_Layer: 0
   m_Name: chrome
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1736,7 +1736,7 @@ GameObject:
   - component: {fileID: 7056305373372740272}
   m_Layer: 0
   m_Name: mirror
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1813,7 +1813,7 @@ GameObject:
   - component: {fileID: 8540642423784047930}
   m_Layer: 0
   m_Name: turnlght
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2198,7 +2198,7 @@ GameObject:
   - component: {fileID: 5383802155520264869}
   m_Layer: 0
   m_Name: Ellipse03
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2275,7 +2275,7 @@ GameObject:
   - component: {fileID: 6032024624142373306}
   m_Layer: 0
   m_Name: glass
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2352,7 +2352,7 @@ GameObject:
   - component: {fileID: 951871157488041428}
   m_Layer: 0
   m_Name: nplate
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2660,7 +2660,7 @@ GameObject:
   - component: {fileID: 2339180644258216855}
   m_Layer: 0
   m_Name: rearlght
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2814,7 +2814,7 @@ GameObject:
   - component: {fileID: 9098483594292472456}
   m_Layer: 0
   m_Name: tyre
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3081,7 +3081,7 @@ GameObject:
   - component: {fileID: 5768781802979430972}
   m_Layer: 0
   m_Name: Sphere02.Sphere01
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3158,7 +3158,7 @@ GameObject:
   - component: {fileID: 8141747961658737408}
   m_Layer: 0
   m_Name: black
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3312,7 +3312,7 @@ GameObject:
   - component: {fileID: 780948590199606619}
   m_Layer: 0
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3389,7 +3389,7 @@ GameObject:
   - component: {fileID: 541040596900014169}
   m_Layer: 0
   m_Name: Ellipse02
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3543,7 +3543,7 @@ GameObject:
   - component: {fileID: 5679990595519806768}
   m_Layer: 0
   m_Name: plastic
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3774,7 +3774,7 @@ GameObject:
   - component: {fileID: 7414982921133094407}
   m_Layer: 0
   m_Name: backlght
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3851,7 +3851,7 @@ GameObject:
   - component: {fileID: 8832395649449850495}
   m_Layer: 0
   m_Name: interior
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3928,7 +3928,7 @@ GameObject:
   - component: {fileID: 1137421731614803477}
   m_Layer: 0
   m_Name: Ellipse04
-  m_TagString: Untagged
+  m_TagString: Ambulance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

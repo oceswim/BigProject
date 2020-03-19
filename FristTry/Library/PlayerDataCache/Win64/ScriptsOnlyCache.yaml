@@ -1256,4 +1256,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Grass.unity
   - Assets/Scenes/Desert.unity
-  playerPath: /Users/Oceswil83/Desktop/COURSFAC/BIGPROJECTbuilds/NewModelsBuild/FristTry.exe
+  playerPath: /Users/Oceswil83/Desktop/COURSFAC/BIGPROJECTbuilds/windows/Fixed_Build_1803/Fixed_Build_1803/FristTry.exe

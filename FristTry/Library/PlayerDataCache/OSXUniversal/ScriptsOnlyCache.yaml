@@ -11,7 +11,6 @@ ScriptsOnlyBuild:
     - NameProject
     - ObjectRotation
     - PrefabSelection
-    - RotateObject
     - SceneSelecter
     - SceneSwitch
     - SliderLight
@@ -67,6 +66,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -91,8 +94,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 9426}
     - Class: 114
       Script: {instanceID: 9850}
-    - Class: 114
-      Script: {instanceID: 9978}
     - Class: 114
       Script: {instanceID: 10076}
     - Class: 114
@@ -138,6 +139,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -162,8 +167,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 9426}
     - Class: 114
       Script: {instanceID: 9850}
-    - Class: 114
-      Script: {instanceID: 9978}
     - Class: 114
       Script: {instanceID: 10076}
     - Class: 114
@@ -1253,4 +1256,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Grass.unity
   - Assets/Scenes/Desert.unity
-  playerPath: /Users/Oceswil83/Desktop/COURSFAC/ML/Submission/testBuild.app
+  playerPath: /Users/Oceswil83/Desktop/COURSFAC/BIGPROJECTbuilds/LatestBuildMac.app

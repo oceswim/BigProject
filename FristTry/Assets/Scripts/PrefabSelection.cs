@@ -59,7 +59,6 @@ public class PrefabSelection : MonoBehaviour
         else
         {
             errorMessage1.SetActive(true);
-            Debug.Log("max atteint");
         }
     }
     public void RemoveObjFromList()

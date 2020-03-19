@@ -12,8 +12,8 @@ public class DistanceToObject : MonoBehaviour
     {
         input1 = input2 = input3 = false;
         GameManager.objMinDist = 0;
-        GameManager.objMaxDist = 1000;
-        GameManager.step1 = 500;
+        GameManager.objMaxDist = 200;
+        GameManager.step1 = 50;
     }
     public void MinDistInput()
     {
@@ -77,13 +77,13 @@ public class DistanceToObject : MonoBehaviour
             }
             Debug.Log("DIST OBJ: The STEP is now" + Step.text);
             int ste1 = int.Parse(Step.text);
-            if (ste1 <= MAXDIST && ste1 >=100)
+            if (ste1 <= MAXDIST && ste1 >0)
             {
                 GameManager.step1 = int.Parse(Step.text);
             }
             else
             {
-                GameManager.step1 =100;
+                GameManager.step1 =5;
             }
 
         }

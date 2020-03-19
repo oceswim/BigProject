@@ -11,7 +11,7 @@ public class ElevationAngle : MonoBehaviour
         input1 = input2 = input3 = false;
         GameManager.elevationMinAngle = 0;
         GameManager.elevationMaxAngle = MAXANGLE;
-        GameManager.step2 = 45;
+        GameManager.step2 = 15;
     }
     public void MinAngleInput()
     {
@@ -77,7 +77,7 @@ public class ElevationAngle : MonoBehaviour
             }
             Debug.Log("ELEV: The step2 is now" + Step2.text);
             int ste2 = int.Parse(Step2.text);
-            if (ste2 <= MAXANGLE)
+            if (ste2 <= MAXANGLE && ste2>0)
             {
                 GameManager.step2 = int.Parse(Step2.text);
             }

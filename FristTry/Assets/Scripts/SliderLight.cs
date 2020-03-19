@@ -13,7 +13,7 @@ public class SliderLight : MonoBehaviour
     private void Start()
     {
         input1 = false;
-        GameManager.SliderValue = 100;
+        GameManager.SliderValue = 90;
         sliderValue.text = mySlider.value.ToString();
     }
 
